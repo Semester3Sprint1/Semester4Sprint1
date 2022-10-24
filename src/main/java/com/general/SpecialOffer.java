@@ -15,6 +15,6 @@ public class SpecialOffer extends Membership {
 
     @Override
     public String toString() {
-        return "Member Type: Trial\n" + "Duration: " + this.DURATION_IN_DAYS + " days\n" + "Cost: " + getFormat().format(getCost());
+        return "Member Type: Special Offer\n" + "Duration: " + this.DURATION_IN_DAYS + " days\n" + "Cost: " + getFormat().format(getCost());
     }
 }

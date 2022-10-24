@@ -3,6 +3,7 @@ package com.general;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Member extends Person{
@@ -11,15 +12,12 @@ public class Member extends Person{
     private Membership membership;
 
 
-
     public Member(String firstName, String lastName, Address address, String email, String memberID, String startDate, Membership membership) {
         super(firstName, lastName, address, email);
         this.memberID = memberID;
         setStartDate(startDate);
         setMembership(membership);
     }
-
-
 
     public String getMemberID() {
         return memberID;

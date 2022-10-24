@@ -1,18 +1,19 @@
 package com.general;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Family extends Membership {
     private final int DURATION_IN_DAYS = 365;
     private final double DISCOUNT_RATE;
-    private ArrayList<Member> familyMembers;
+    private HashMap<String, Member> familyMembers;
 
-    public Family(ArrayList<Member> members) {
+    public Family(HashMap<String, Member> members) {
         while (true){
             String memID = Console.readString("Enter the Member ID of each additional family member, or enter \"DONE\" to finish");
             if (memID.equals("DONE")) break;
-
-            familyMembers.add(SearchForMember.findMember(memID));
+            Member searchedMember = SearchForMember.findMember(memID);
+            if (searchedMember != null) familyMembers.put(searchedMember.getMemberID(), searchedMember);
         }
 
         if (familyMembers != null) {

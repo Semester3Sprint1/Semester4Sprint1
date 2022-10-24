@@ -5,13 +5,16 @@ import java.util.Date;
 public class Main {
 
     public static void main(String[]args){
+        Member mem1 = AddMember.createMember();
+        Member mem2 = AddMember.createMember();
 
-        Trial m1 = new Trial();
-        Address address1 = new Address("21 first street", "St.John's",
-                "A1A5A5", "NL", "Canada");
-        Member member1 = new Member("Mike", "Wadden", address1, "mike@email.com", "M2","03/23/2022", m1  );
-        System.out.println(member1);
+        System.out.println(SearchForMember.findMember("A1"));
 
+        System.out.println(mem1);
+        System.out.println(mem2);
+    }
+
+    public static void addMember(){
 
     }
 }

@@ -12,7 +12,7 @@ public class Tournament {
    private double cashPrize;
    private ArrayList<Member> memberList;
 
-
+    // sort past , upcoming , current by date
     public Tournament(String name, Date startDate, Date endDate, String location, double entryFee, double cashPrize, ArrayList<Member> memberList) {
         this.name = name;
         this.startDate = startDate;

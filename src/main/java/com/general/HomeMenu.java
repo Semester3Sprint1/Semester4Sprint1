@@ -2,7 +2,7 @@ package com.general;
 
 public class HomeMenu {
 
-    public static void run(){
+    public static void show(){
 
         System.out.println("Mcllroy Country Club Management System");
         System.out.println();
@@ -20,7 +20,7 @@ public class HomeMenu {
 
             switch(selection){
                 case 1 -> System.out.println("Member Section");
-                case 2 -> System.out.println("Tournament Section");
+                case 2 -> TournamentMenu.show();
                 case 3 -> System.out.println("Reports Section");
                 case 4  -> {
                     System.out.println("Closing Program");

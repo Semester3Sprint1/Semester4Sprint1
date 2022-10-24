@@ -23,7 +23,7 @@ public class TournamentMenu {
             switch (selection) {
                 case 1 -> System.out.println("Create Tournament");
                 case 2 -> System.out.println("Register Member for Tournament");
-                case 3 -> System.out.println("Remove Menu from Tournament");
+                case 3 -> System.out.println("Remove Member from Tournament");
                 case 4 -> {
                     System.out.println("Returning to Main Menu");
                     HomeMenu.show();

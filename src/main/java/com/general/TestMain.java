@@ -37,6 +37,7 @@ public class TestMain {
 
 
 //        System.out.println(mem5.getMembership());
+        ScoreCard.autoGenList();
 
 
 

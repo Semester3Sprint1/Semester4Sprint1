@@ -10,7 +10,7 @@ public abstract class Membership {
         return baseCost;
     }
 
-    public NumberFormat getFormat(){
+    protected NumberFormat getFormat(){
         return formatter;
     }
 }

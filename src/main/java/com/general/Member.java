@@ -3,12 +3,9 @@ package com.general;
 import java.util.Date;
 
 public class Member extends Person{
-
     private  final String memberID;
     private final  Date startDate;
     private Membership membership;
-
-
 
     public Member(String firstName, String lastName, Address address, String email, String memberID,  Membership membership) {
         super(firstName, lastName, address, email);

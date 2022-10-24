@@ -6,7 +6,7 @@ public class SpecialOffer extends Membership {
 
     @Override
     public double getCost() {
-        return super.getCost() * this.DISCOUNT_RATE;
+        return super.getCost() * (1 - this.DISCOUNT_RATE);
     }
 
     public int getDURATION_IN_DAYS() {

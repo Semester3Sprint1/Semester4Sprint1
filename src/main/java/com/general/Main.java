@@ -7,11 +7,13 @@ public class Main {
     public static void main(String[]args){
         Member mem1 = AddMember.createMember();
         Member mem2 = AddMember.createMember();
+        Member mem3 = AddMember.createMember();
+        Member mem4 = AddMember.createMember();
 
-        System.out.println(SearchForMember.findMember("A1"));
+        Member mem5 = AddMember.createFamilyMember();
 
-        System.out.println(mem1);
-        System.out.println(mem2);
+        System.out.println(mem5.getMembership());
+
     }
 
     public static void addMember(){

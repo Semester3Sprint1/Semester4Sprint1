@@ -36,7 +36,6 @@ public class Member extends Person{
         return membership;
     }
 
-
     public void setMembership(Membership membership) {
         this.membership = membership;
     }

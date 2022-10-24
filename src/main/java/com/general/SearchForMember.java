@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class SearchForMember {
     private static HashMap<String, Member> members;
-    private static ArrayList<Member> members2;
+    //private static ArrayList<Member> members2;
 
     SearchForMember(HashMap<String, Member> members) {
         SearchForMember.members = members;
@@ -14,7 +14,7 @@ public class SearchForMember {
 
     public static Member findMember(String memberID) {
         Member searchedAccount;
-        var result = members2.stream().filter(m -> m.getMemberID().equals(memberID));
+        //var result = members2.stream().filter(m -> m.getMemberID().equals(memberID));
         boolean accountFound = members.containsKey(memberID);
         if (!accountFound) System.out.println("Invalid entry. That account ID does not exist.");
         searchedAccount = members.get(memberID);
@@ -22,6 +22,7 @@ public class SearchForMember {
         return searchedAccount;
     }
 
-    public static void main(String[] args) {
+    public static HashMap<String, Member> getMembers() {
+        return members;
     }
 }

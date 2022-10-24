@@ -1,24 +1,23 @@
 package com.general;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Family extends Membership {
     private final int DURATION_IN_DAYS = 365;
     private final double DISCOUNT_RATE;
-    private ArrayList<Member> familyMembers;
+    ArrayList<String> familyMembers = new ArrayList<>();
 
-    public Family(ArrayList<Member> members) {
+    public Family() {
         while (true){
             String memID = Console.readString("Enter the Member ID of each additional family member, or enter \"DONE\" to finish");
             if (memID.equals("DONE")) break;
-
-            familyMembers.add(SearchForMember.findMember(memID));
+            Member searchedMember = SearchForMember.findMember(memID);
+            if (searchedMember != null) familyMembers.add(searchedMember.getMemberID() + " - " + searchedMember.getName());
         }
 
-        if (familyMembers != null) {
-            if (familyMembers.size() > 5) this.DISCOUNT_RATE = 0.5;
-            else this.DISCOUNT_RATE = familyMembers.size() / 10.0;
-        } else this.DISCOUNT_RATE = 0;
+        if (familyMembers.size() > 5) this.DISCOUNT_RATE = 0.5;
+        else this.DISCOUNT_RATE = familyMembers.size() / 10.0;
     }
 
     @Override
@@ -32,6 +31,8 @@ public class Family extends Membership {
 
     @Override
     public String toString() {
-        return "Member Type: Other\n" + "Duration: " + this.DURATION_IN_DAYS + " days\n" + "Cost: " + getFormat().format(getCost());
+        return "Member Type: Family Plan\n" + "Duration: " + this.DURATION_IN_DAYS + " days\n" +
+                "Cost: " + getFormat().format(getCost()) + "\n" +
+                "Family members on plan: " + familyMembers;
     }
 }

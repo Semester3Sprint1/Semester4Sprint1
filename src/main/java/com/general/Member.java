@@ -11,15 +11,12 @@ public class Member extends Person{
     private Membership membership;
 
 
-
     public Member(String firstName, String lastName, Address address, String email, String memberID, String startDate, Membership membership) {
         super(firstName, lastName, address, email);
         this.memberID = memberID;
         setStartDate(startDate);
         setMembership(membership);
     }
-
-
 
     public String getMemberID() {
         return memberID;
@@ -37,7 +34,6 @@ public class Member extends Person{
     public Membership getMembership() {
         return membership;
     }
-
 
     public void setMembership(Membership membership) {
         this.membership = membership;

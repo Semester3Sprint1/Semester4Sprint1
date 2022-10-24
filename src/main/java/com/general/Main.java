@@ -6,6 +6,11 @@ import java.util.Date;
 public class Main {
 
     public static void main(String[]args){
+        Member mem1 = AddMember.createMember();
+        Member mem2 = AddMember.createMember();
+        Member mem3 = AddMember.createMember();
+        Member mem4 = AddMember.createMember();
+
 
         Trial m1 = new Trial();
         Address address1 = new Address("21 first street", "St.John's",
@@ -22,6 +27,14 @@ public class Main {
         t1.addMember(member2);
         t1.displayTournamentParticipants();
 
+        Member mem5 = AddMember.createFamilyMember();
+
+
+        System.out.println(mem5.getMembership());
+
+    }
+
+    public static void addMember(){
 
     }
 }

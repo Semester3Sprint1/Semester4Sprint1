@@ -23,4 +23,23 @@ public class AddMember {
 
         return member;
     }
+
+    public static Member createFamilyMember(){
+        String memberID = Console.readString("Enter member ID: ");
+
+        // Membership Type
+        Family f1 = new Family();
+
+        // Address Info
+        Address address1 = new Address("21 first street", "St.John's",
+                "A1A5A5", "NL", "Canada");
+
+        // Member Info
+        Member member = new Member("Mike", "Wadden", address1, "mike@email.com", memberID,"03/23/2022", f1);
+        members.put(member.getMemberID(), member);
+
+        new SearchForMember(members);
+
+        return member;
+    }
 }

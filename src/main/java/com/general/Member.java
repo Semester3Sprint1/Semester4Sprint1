@@ -3,7 +3,6 @@ package com.general;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 
 public class Member extends Person{
@@ -35,7 +34,6 @@ public class Member extends Person{
     public Membership getMembership() {
         return membership;
     }
-
 
     public void setMembership(Membership membership) {
         this.membership = membership;

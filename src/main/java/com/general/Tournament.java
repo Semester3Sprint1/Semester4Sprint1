@@ -6,47 +6,71 @@ public class Tournament {
     public String name;
     public Date startDate;
 
-    public Date getStartDate{
+    public Date getStartDate()
+
+    {
         return this.startDate;
     }
-    public void setStartDate{
+
+    public void setStartDate(Date startDate)
+
+    {
         this.startDate = startDate;
     }
 
     public Date endDate;
 
-    public Date getEndDate{
+    public Date getEndDate()
+
+    {
         return this.endDate;
     }
 
-    public void setEndDate{
+    public void setEndDate(Date endDate)
+
+    {
         this.endDate = endDate;
     }
 
     public String location;
 
-    public String getLocation{
+    public String getLocation()
+
+    {
         return this.location;
     }
-    public void setLocation{
+
+    public void setLocation(String location)
+
+    {
         this.location = location;
     }
 
     public double entryFee;
 
-    public double getEntryFee{
+    public double getEntryFee()
+
+    {
         return this.entryFee;
     }
-    public void setEntryFee{
+
+    public void setEntryFee(double entryFee)
+
+    {
         this.entryFee = entryFee;
     }
 
     public double cashPrice;
 
-    public double getCashPrice{
+    public double getCashPrice()
+
+    {
         return this.cashPrice;
     }
-    public void setCashPrice{
+
+    public void setCashPrice(double cashPrice)
+
+    {
         this.cashPrice = cashPrice;
     }
 
@@ -54,3 +78,5 @@ public class Tournament {
 
     public String finalStandings;
 }
+
+

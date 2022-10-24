@@ -49,5 +49,5 @@ public class Tournament {
         this.cashPrice = cashPrice;
     }
 
-    public String finalStandings;
+   public String finalStandings;
 }

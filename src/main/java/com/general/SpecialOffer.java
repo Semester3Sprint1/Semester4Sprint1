@@ -1,12 +1,12 @@
 package com.general;
 
 public class SpecialOffer extends Membership {
+    private final double DISCOUNT = 0.00;
+    private final double monthlyCost;
 
     public SpecialOffer(int duration) {
         super(duration);
-
-        double DISCOUNT = 0.5;
-        super.setMonthlyCost(super.getBaseCost() * DISCOUNT);
+        this.monthlyCost = super.getBaseCost() * DISCOUNT;
     }
 
     @Override

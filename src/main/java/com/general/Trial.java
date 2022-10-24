@@ -1,20 +1,20 @@
 package com.general;
 
 public class Trial extends Membership {
-    private final double DISCOUNT = 0.00;
-    private final double monthlyCost;
+    private final int DURATION_IN_DAYS = 15;
+    private final double DISCOUNT_RATE = 0;
 
-    public Trial(int duration) {
-        super(duration);
-        this.monthlyCost = super.getBaseCost() * DISCOUNT;
+    @Override
+    public double getCost() {
+        return super.getCost() * this.DISCOUNT_RATE;
+    }
+
+    public int getDURATION_IN_DAYS() {
+        return DURATION_IN_DAYS;
     }
 
     @Override
     public String toString() {
-        return "Member Type: Trial\n" + super.toString();
-    }
-
-    public double getMonthlyCost() {
-        return monthlyCost;
+        return "Member Type: Special Offer\n" + "Duration: " + this.DURATION_IN_DAYS + " days\n" + "Cost: " + getFormat().format(getCost());
     }
 }

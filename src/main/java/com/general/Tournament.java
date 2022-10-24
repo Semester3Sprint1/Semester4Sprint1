@@ -74,9 +74,7 @@ public class Tournament {
         this.cashPrice = cashPrice;
     }
 
-    public Member extends Person{
 
-    }
 
     public String finalStandings;
 }

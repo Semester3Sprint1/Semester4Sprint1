@@ -1,14 +1,36 @@
 package com.general;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class Tournament {
-    public String name;
-    public Date startDate;
-    public Date endDate;
-    public String location;
-    public double entryFee;
-    public double cashPrice;
+   private String name;
+    private Date startDate;
+    private  Date endDate;
+    private  String location;
+    private  double entryFee;
+   private double cashPrize;
+   private ArrayList<Member> memberList;
+
+
+    public Tournament(String name, Date startDate, Date endDate, String location, double entryFee, double cashPrize, ArrayList<Member> memberList) {
+        this.name = name;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.location = location;
+        this.entryFee = entryFee;
+        this.cashPrize = cashPrize;
+        this.memberList = memberList;
+    }
+
+    public Tournament(String name, Date startDate, Date endDate, String location, double entryFee, double cashPrice) {
+        this.name = name;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.location = location;
+        this.entryFee = entryFee;
+        this.cashPrize = cashPrice;
+    }
 
     public Date getStartDate(){
         return this.startDate;
@@ -41,12 +63,12 @@ public class Tournament {
     public void setEntryFee(double entryFee){
         this.entryFee = entryFee;
     }
-    public double getCashPrice(){
-        return this.cashPrice;
+    public double getCashPrize(){
+        return this.cashPrize;
     }
 
-    public void setCashPrice(double cashPrice){
-        this.cashPrice = cashPrice;
+    public void setCashPrize(double cashPrize){
+        this.cashPrize = cashPrize;
     }
 
    public String finalStandings;

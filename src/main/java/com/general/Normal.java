@@ -14,6 +14,6 @@ public class Normal extends Membership {
     }
     @Override
     public String toString() {
-        return "Member Type: Special Offer\n" + "Duration: " + this.DURATION_IN_DAYS + " days\n" + "Cost: " + getFormat().format(getCost());
+        return "Member Type: Normal\n" + "Duration: " + this.DURATION_IN_DAYS + " days\n" + "Cost: " + getFormat().format(getCost());
     }
 }

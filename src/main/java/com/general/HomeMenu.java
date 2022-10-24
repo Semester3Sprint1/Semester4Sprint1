@@ -2,7 +2,7 @@ package com.general;
 
 public class HomeMenu {
 
-    public static void run(){
+    public static void show(){
 
         System.out.println("Mcllroy Country Club Management System");
         System.out.println();
@@ -10,17 +10,17 @@ public class HomeMenu {
         while(true){
             System.out.println("""
                     Please Choose an Option:
-                    1. Member Menu
+                    1. Add Member
                     2. Tournament Menu
-                    3. Reports
+                    3. Report Menu
                     4. Quit
                     """);
             int selection = (int) Console.readNumber("Enter Selection: " , 1,4);
             System.out.println();
 
             switch(selection){
-                case 1 -> System.out.println("Member Section");
-                case 2 -> System.out.println("Tournament Section");
+                case 1 -> AddMember.createMember();
+                case 2 -> TournamentMenu.show();
                 case 3 -> System.out.println("Reports Section");
                 case 4  -> {
                     System.out.println("Closing Program");

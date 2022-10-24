@@ -10,11 +10,12 @@ public class Member extends Person{
 
 
 
-    public Member(String firstName, String lastName, Address address, String email, String memberID, Date startDate, Membership membership) {
+    public Member(String firstName, String lastName, Address address, String email, String memberID,  Membership membership) {
         super(firstName, lastName, address, email);
+        Date date = new Date();
         this.memberID = memberID;
-        this.startDate = startDate;
-        this.membership = membership;
+        this.startDate = date;
+        setMembership(membership);
     }
 
     public String getMemberID() {
@@ -32,5 +33,10 @@ public class Member extends Person{
 
     public void setMembership(Membership membership) {
         this.membership = membership;
+    }
+
+    @Override
+    public String toString(){
+        return("Member ID:" + getMemberID() + "\n" + super.toString() + "\n" + getMembership()  + "Start Date:"+ getStartDate());
     }
 }

@@ -11,12 +11,11 @@ public class Address {
 
 
     public Address( String streetAddress,String city, String postalCode, String province, String country) {
-        this.streetAddress = streetAddress;
-        this.city = city;
-        this.postalCode = postalCode;
-        this.province = province;
-        this.country = country;
-
+        setStreetAddress(streetAddress);
+        setCity(city);
+        setPostalCode(postalCode);
+        setProvince(province);
+        setCountry(country);
         addressID++;
     }
 
@@ -62,14 +61,11 @@ public class Address {
 
     @Override
     public String toString(){
-        return("Street Address:" + getStreetAddress()
-                + "\n" + "City,"
-                + getCity()
-                + ",Province:"
-                + getProvince()
-                + ",Country"
+        return(getStreetAddress() +","
+                + "\n" + getCity() +","
+                + getProvince() + ","
                 + getCountry()
-                + "Postal Code"
+                + ","
                 + getPostalCode());
 
     }

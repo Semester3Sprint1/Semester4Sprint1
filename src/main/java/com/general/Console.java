@@ -9,7 +9,7 @@ public class Console {
     public static double readNumber(String prompt, double min) {
         double value;
         while (true) {
-            System.out.println(prompt);
+            System.out.print(prompt);
             value = input.nextDouble();
             if (value >= min) {
                 break;
@@ -21,7 +21,7 @@ public class Console {
     public static double readNumber(String prompt, double min, double max) {
         double value;
         while (true) {
-            System.out.println(prompt);
+            System.out.print(prompt);
             value = input.nextDouble();
             if (value >= min && value <= max) {
                 break;

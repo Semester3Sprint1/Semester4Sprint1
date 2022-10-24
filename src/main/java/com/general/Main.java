@@ -6,10 +6,10 @@ import java.util.Date;
 public class Main {
 
     public static void main(String[]args){
-        Member mem1 = AddMember.createMember();
-        Member mem2 = AddMember.createMember();
-        Member mem3 = AddMember.createMember();
-        Member mem4 = AddMember.createMember();
+//        Member mem1 = AddMember.createMember();
+//        Member mem2 = AddMember.createMember();
+//        Member mem3 = AddMember.createMember();
+//        Member mem4 = AddMember.createMember();
 
 
         Trial m1 = new Trial();
@@ -21,20 +21,26 @@ public class Main {
         Member member2 = new Member("Alex", "Ridgeley", address1, "alex@email.com", "A2","05/15/2022", m1  );
         System.out.println(member1);
         System.out.println(member2);
-        Tournament t1 = new Tournament("Alex Open", "04/22/2022","04/23/2022", "The Wilds", 500,10_000  );
+        CompetitiveTournament t1 = new CompetitiveTournament("Alex Open", "04/22/2022","04/23/2022", "The Wilds", 500, 10_000 );
         System.out.println(t1);
         t1.addMember(member1);
         t1.addMember(member2);
         t1.displayTournamentParticipants();
 
-        Member mem5 = AddMember.createFamilyMember();
+        CharityTournament t2 = new CharityTournament("RBC Charity Tournament", "05/15/2022", "05/15/2022", "The Wild", 1000,
+                "RBC Water for All foundation");
+        t2.setMoneyRaised(50_000);
+
+        t2.addMember(member1);
+        t2.addMember(member2);
+        System.out.println(t2);
+        t2.displayTournamentParticipants();
+
+//        Member mem5 = AddMember.createFamilyMember();
 
 
-        System.out.println(mem5.getMembership());
+//        System.out.println(mem5.getMembership());
 
     }
 
-    public static void addMember(){
-
-    }
 }

@@ -14,29 +14,27 @@ public class Tournament {
     private  Date endDate;
     private  String location;
     private  double entryFee;
-   private double cashPrize;
+
    private ArrayList<Member> memberList = new ArrayList<>();
 
     // sort past , upcoming , current by date
-    public Tournament(String name, String startDate,String  endDate, String location, double entryFee, double cashPrize, ArrayList<Member> memberList) {
-        this.name = name;
+    public Tournament(String name, String startDate,String  endDate, String location, double entryFee, ArrayList<Member> memberList) {
+        setName(name);
         setStartDate(startDate);
         setEndDate(endDate);
-        this.location = location;
+        setLocation(location);
         this.entryFee = entryFee;
-        this.cashPrize = cashPrize;
         this.memberList = memberList;
     }
 
-    public Tournament(String name, String startDate, String endDate, String location, double entryFee, double cashPrice) {
-        this.name = name;
+    public Tournament(String name, String startDate, String endDate, String location, double entryFee){
+        setName(name);
         setStartDate(startDate);
         setEndDate(endDate);
-        this.location = location;
-        this.entryFee = entryFee;
-        this.cashPrize = cashPrice;
-    }
+        setLocation(location);
+        setEntryFee(entryFee);
 
+    }
 
     public String getName() {
         return name;
@@ -95,13 +93,7 @@ public class Tournament {
     public void setEntryFee(double entryFee){
         this.entryFee = entryFee;
     }
-    public double getCashPrize(){
-        return this.cashPrize;
-    }
 
-    public void setCashPrize(double cashPrize){
-        this.cashPrize = cashPrize;
-    }
 
     public void setName(String name) {
         this.name = name;
@@ -118,10 +110,9 @@ public class Tournament {
                 .forEach(m-> System.out.println(m.getName()));
     }
 
-    public String finalStandings;
     @Override
     public String toString(){
         return("Tournament Name: " + getName() + " Location " + getLocation() + "\nStartDate: " + getStartDate() + " End Date: " + getEndDate()
-                + " Entry Fee: " + NumberFormat.getCurrencyInstance().format(getEntryFee()) +  " Cash Prize: " +  NumberFormat.getCurrencyInstance().format(getCashPrize()));
+                + " Entry Fee: " + NumberFormat.getCurrencyInstance().format(getEntryFee()));
     }
 }

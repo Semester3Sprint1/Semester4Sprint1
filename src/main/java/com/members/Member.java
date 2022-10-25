@@ -53,8 +53,12 @@ public class Member extends Person{
 
     }
 
+//    public void delete(){
+//        this. = null;
+//    }
+
     @Override
     public String toString(){
-        return("Member ID:" + getMemberID() + "\n" + super.toString() + "\n" + getMembership()  + "Start Date:"+ getStartDate());
+        return("Member ID: " + getMemberID() + "\n" + super.toString() + "\n" + getMembership()  + "\nStart Date: "+ getStartDate());
     }
 }

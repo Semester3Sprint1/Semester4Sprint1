@@ -6,10 +6,11 @@ import com.members.*;
 public class MemberMenu {
 
     public static void show(){
+        boolean returnFlag = false;
         System.out.println("Member Services Menu");
         System.out.println();
 
-        while(true){
+        while(!returnFlag){
             System.out.println("""
                     Please Choose an Option:
                         1. Add Members
@@ -32,8 +33,8 @@ public class MemberMenu {
                     if (memberToEdit != null) editMenu.show();
                 }
                 case 4  -> {
-                    System.out.println("Closing Program");
-                    System.exit(0);
+                    System.out.println("Returning...");
+                    returnFlag = true;
                 }
                 default -> {
                     System.out.println("Invalid Entry. Please choose a option between 1 and 4");

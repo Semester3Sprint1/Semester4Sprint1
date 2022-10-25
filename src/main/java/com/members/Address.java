@@ -69,12 +69,12 @@ public class Address {
 
     @Override
     public String toString(){
-        return(getStreetAddress() +","
-                + "\n" + getCity() +","
-                + getProvince() + ","
-                + getCountry()
-                + ","
-                + getPostalCode());
+        return(getStreetAddress()
+                + "\n         " + getCity() +", "
+                + getProvince() + "\n         "
+                + getPostalCode()
+                + "\n         "
+                + getCountry());
 
     }
 }

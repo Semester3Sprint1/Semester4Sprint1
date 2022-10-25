@@ -1,21 +1,19 @@
 package com.menus;
 
-import com.members.AddMember;
 import com.general.Console;
+import com.members.AddMember;
 
-public class HomeMenu {
+public class MemberMenu {
 
     public static void show(){
-
-        System.out.println("Mcllroy Country Club Management System");
+        System.out.println("Member Services Menu");
         System.out.println();
-
         while(true){
             System.out.println("""
                     Please Choose an Option:
-                    1. Member Services
-                    2. Tournament Menu
-                    3. Report Menu
+                    1. Add Members
+                    2. View Current Members
+                    3. Remove Member
                     4. Quit
                     """);
             int selection = (int) Console.readNumber("Enter Selection: " , 1,4);
@@ -23,8 +21,8 @@ public class HomeMenu {
 
             switch(selection){
                 case 1 -> AddMember.createMember();
-                case 2 -> TournamentMenu.show();
-                case 3 -> System.out.println("Reports Section");
+                case 2 -> System.out.println();
+                case 3 -> System.out.println();
                 case 4  -> {
                     System.out.println("Closing Program");
                     System.exit(0);

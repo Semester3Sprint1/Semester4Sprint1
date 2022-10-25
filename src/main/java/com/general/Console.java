@@ -31,11 +31,26 @@ public class Console {
     }
 
     // For string inputs
-    public static String readString(String prompt){
+    public static String readString(String prompt) {
         String value;
-        System.out.println(prompt);
+        System.out.print(prompt);
         value = input.next();
-        return value;
+        return value.toUpperCase();
+    }
+
+    public static String readChar(String prompt, String opt1, String opt2) {
+        String choice;
+        while (true) {
+            System.out.println(prompt);
+            choice = input.next();
+            if (choice.equals(opt1) || choice.equals(opt2)) {
+                break;
+            } else {
+                System.out.println("Invalid Entry! Enter (" + opt1 + " or " + opt2 + ")");
+            }
+        }
+        return choice;
+
+
     }
 }
-

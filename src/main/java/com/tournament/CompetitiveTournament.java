@@ -9,6 +9,7 @@ public class CompetitiveTournament extends Tournament{
 
     private double cashPrize;
 
+    //Constructors
     public CompetitiveTournament(String name, String startDate, String endDate, String location, double entryFee, ArrayList<Member> memberList, double cashPrize) {
         super(name, startDate, endDate, location, entryFee, memberList);
         this.cashPrize = cashPrize;
@@ -19,13 +20,18 @@ public class CompetitiveTournament extends Tournament{
         this.cashPrize = cashPrize;
     }
 
+    //Getters
+
     public double getCashPrize() {
         return cashPrize;
     }
 
+    //Setters
     public void setCashPrize(double cashPrize) {
         this.cashPrize = cashPrize;
     }
+
+    //String Outputs
 
     @Override
     public String toString(){

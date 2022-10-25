@@ -10,6 +10,7 @@ public class CharityTournament  extends Tournament{
     private double moneyRaised;
     private String charityName;
 
+    //Constructors
 
     public CharityTournament(String name, String startDate, String endDate, String location, double entryFee, String charityName) {
         super(name, startDate, endDate, location, entryFee);
@@ -22,6 +23,7 @@ public class CharityTournament  extends Tournament{
         setCharityName(charityName);
     }
 
+    //Getters
     public double getMoneyRaised() {
         return moneyRaised;
     }
@@ -29,6 +31,8 @@ public class CharityTournament  extends Tournament{
     public String getCharityName() {
         return charityName;
     }
+
+    //Setters
 
     public void setMoneyRaised(double moneyRaised) {
         this.moneyRaised = moneyRaised;
@@ -38,6 +42,7 @@ public class CharityTournament  extends Tournament{
         this.charityName = charityName;
     }
 
+    //Output String
     @Override
 
     public String toString(){

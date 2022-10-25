@@ -1,5 +1,6 @@
 package com.general;
 
+import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.Date;
 import java.text.DateFormat;
@@ -18,6 +19,15 @@ public class Tournament {
    private ArrayList<Member> memberList = new ArrayList<>();
 
     // sort past , upcoming , current by date
+
+    public Tournament (){
+        this.name = "Not Available";
+        this.location = "Not Available";
+        this.entryFee = 0;
+        setStartDate("01/01/2000");
+        setEndDate("01/01/2000");
+
+    }
     public Tournament(String name, String startDate,String  endDate, String location, double entryFee, ArrayList<Member> memberList) {
         setName(name);
         setStartDate(startDate);

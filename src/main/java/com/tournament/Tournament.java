@@ -17,6 +17,8 @@ public class Tournament {
     private  String location;
     private  double entryFee;
 
+    public static ArrayList<Tournament> tList = new ArrayList<>();
+
    private ArrayList<Member> memberList = new ArrayList<>();
 
     // sort past , upcoming , current by date

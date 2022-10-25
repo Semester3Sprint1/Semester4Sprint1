@@ -1,4 +1,6 @@
-package com.general;
+package com.members;
+
+import com.members.membership.Membership;
 
 import java.text.DateFormat;
 import java.text.ParseException;

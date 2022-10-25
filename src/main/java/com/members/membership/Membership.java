@@ -1,4 +1,4 @@
-package com.general;
+package com.members.membership;
 
 import java.text.NumberFormat;
 

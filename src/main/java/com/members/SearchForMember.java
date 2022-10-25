@@ -1,8 +1,6 @@
-package com.general;
+package com.members;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Objects;
 
 public class SearchForMember {
     private static HashMap<String, Member> members;

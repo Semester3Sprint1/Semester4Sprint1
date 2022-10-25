@@ -1,4 +1,4 @@
-package com.general;
+package com.members.membership;
 
 public class Trial extends Membership {
     private final int DURATION_IN_DAYS = 15;

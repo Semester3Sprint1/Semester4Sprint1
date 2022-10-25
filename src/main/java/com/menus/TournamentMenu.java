@@ -1,6 +1,6 @@
-package com.general;
+package com.menus;
 
-import org.w3c.dom.ls.LSOutput;
+import com.general.Console;
 
 public class TournamentMenu {
 

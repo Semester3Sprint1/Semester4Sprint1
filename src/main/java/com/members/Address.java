@@ -1,4 +1,4 @@
-package com.general;
+package com.members;
 
 public class Address {
 

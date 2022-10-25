@@ -1,4 +1,6 @@
-package com.general;
+package com.menus;
+
+import com.general.Console;
 
 public class ReportMenu {
 

@@ -1,4 +1,7 @@
-package com.general;
+package com.menus;
+
+import com.members.AddMember;
+import com.general.Console;
 
 public class HomeMenu {
 

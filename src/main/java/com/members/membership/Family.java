@@ -1,7 +1,10 @@
-package com.general;
+package com.members.membership;
+
+import com.general.Console;
+import com.members.Member;
+import com.members.SearchForMember;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Family extends Membership {
     private final int DURATION_IN_DAYS = 365;

@@ -1,4 +1,4 @@
-package com.general;
+package com.members.membership;
 
 public class SpecialOffer extends Membership {
     private final int DURATION_IN_DAYS = 60;

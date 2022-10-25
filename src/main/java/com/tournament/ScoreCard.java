@@ -1,4 +1,6 @@
-package com.general;
+package com.tournament;
+
+import com.members.Member;
 
 import java.util.ArrayList;
 import java.util.Random;

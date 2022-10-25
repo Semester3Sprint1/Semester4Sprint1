@@ -1,5 +1,12 @@
 package com.general;
 
+import com.members.Address;
+import com.members.Member;
+import com.members.membership.Trial;
+import com.tournament.CharityTournament;
+import com.tournament.CompetitiveTournament;
+import com.tournament.ScoreCard;
+
 public class TestMain {
 
     public static void main(String[]args){

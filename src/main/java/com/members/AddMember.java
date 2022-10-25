@@ -1,4 +1,8 @@
-package com.general;
+package com.members;
+
+import com.general.Console;
+import com.members.membership.Family;
+import com.members.membership.Trial;
 
 import java.util.HashMap;
 

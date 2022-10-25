@@ -1,4 +1,6 @@
-package com.general;
+package com.members.membership;
+
+import com.general.Console;
 
 public class Other extends  Membership {
     private final int DURATION_IN_DAYS;

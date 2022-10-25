@@ -9,6 +9,14 @@ public class Address {
     private String province;
     private String country;
 
+    public Address(){
+        this.streetAddress = "Not Available";
+        this.city = "";
+        this.postalCode = "";
+        this.province = "";
+        this.country = "";
+
+    }
 
     public Address( String streetAddress,String city, String postalCode, String province, String country) {
         setStreetAddress(streetAddress);

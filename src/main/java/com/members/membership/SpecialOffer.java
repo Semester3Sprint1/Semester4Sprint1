@@ -1,8 +1,18 @@
 package com.members.membership;
 
 public class SpecialOffer extends Membership {
-    private final int DURATION_IN_DAYS = 60;
-    private final double DISCOUNT_RATE = 0.5;
+    private final int DURATION_IN_DAYS;
+    private final double DISCOUNT_RATE;
+
+    public SpecialOffer() {
+        this.DURATION_IN_DAYS = 60;
+        this.DISCOUNT_RATE = 0.5;
+    }
+
+    public SpecialOffer(int DURATION_IN_DAYS, double DISCOUNT_RATE) {
+        this.DURATION_IN_DAYS = DURATION_IN_DAYS;
+        this.DISCOUNT_RATE = DISCOUNT_RATE;
+    }
 
     @Override
     public double getCost() {

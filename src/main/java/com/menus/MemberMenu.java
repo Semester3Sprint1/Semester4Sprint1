@@ -28,7 +28,7 @@ public class MemberMenu {
                     display.displayMembers();
                 }
                 case 3 -> {
-                    Member memberToEdit = SearchForMember.findMember(Console.readString("Enter member ID: "));
+                    Member memberToEdit = SearchForMember.findMember((int) Console.readNumber("Enter member ID: ", 0));
                     EditMemberMenu editMenu = new EditMemberMenu(memberToEdit);
                     if (memberToEdit != null) editMenu.show();
                 }

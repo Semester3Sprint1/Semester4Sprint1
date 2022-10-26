@@ -1,8 +1,18 @@
 package com.members.membership;
 
 public class Trial extends Membership {
-    private final int DURATION_IN_DAYS = 15;
-    private final double DISCOUNT_RATE = 1;
+    private final int DURATION_IN_DAYS;
+    private final double DISCOUNT_RATE;
+
+    public Trial() {
+        this.DURATION_IN_DAYS = 15;
+        this.DISCOUNT_RATE = 1;
+    }
+
+    public Trial(int DURATION_IN_DAYS, double DISCOUNT_RATE) {
+        this.DURATION_IN_DAYS = DURATION_IN_DAYS;
+        this.DISCOUNT_RATE = DISCOUNT_RATE;
+    }
 
     @Override
     public double getCost() {

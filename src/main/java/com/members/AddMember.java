@@ -6,12 +6,11 @@ import com.members.membership.*;
 import java.util.HashMap;
 
 public class AddMember {
-    private static HashMap<String, Member> members = new HashMap<>();
+    private static HashMap<Integer, Member> members = new HashMap<>();
 
     public static Member createMember(){
-
         // Perhaps we should change this to an auto-generated value?
-        String memberID = Console.readString("Enter member ID: ");
+        int memberID = (int) Console.readNumber("Enter member ID: ", 0);
 
         // Membership Type
         Membership memType = choosePlanType();
@@ -37,7 +36,7 @@ public class AddMember {
     public static Member createDefaultMember(){
 
         // Perhaps we should change this to an auto-generated value?
-        String memberID = Console.readString("Enter member ID: ");
+        int memberID = (int) Console.readNumber("Enter member ID: ", 0);
 
         // Membership Type
         Membership memType = choosePlanType();
@@ -66,7 +65,6 @@ public class AddMember {
         String city = Console.readLine("City: ");
         String province = Console.readLine("Province: ");
         String postalCode = Console.readLine("Postal Code: ");
-
 
         Address address = new Address(streetAddress, city, postalCode, province, "Canada");
         return address;
@@ -121,7 +119,7 @@ public class AddMember {
         }
     }
 
-    public static HashMap<String, Member> getMembers() {
+    public static HashMap<Integer, Member> getMembers() {
         return members;
     }
 

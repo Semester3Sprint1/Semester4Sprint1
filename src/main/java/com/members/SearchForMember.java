@@ -3,14 +3,14 @@ package com.members;
 import java.util.HashMap;
 
 public class SearchForMember {
-    private static HashMap<String, Member> members;
+    private static HashMap<Integer, Member> members;
     //private static ArrayList<Member> members2;
 
-    SearchForMember(HashMap<String, Member> members) {
+    SearchForMember(HashMap<Integer, Member> members) {
         SearchForMember.members = members;
     }
 
-    public static Member findMember(String memberID) {
+    public static Member findMember(int memberID) {
         Member searchedAccount;
         //var result = members2.stream().filter(m -> m.getMemberID().equals(memberID));
         boolean accountFound = members.containsKey(memberID);
@@ -20,7 +20,7 @@ public class SearchForMember {
         return searchedAccount;
     }
 
-    public static HashMap<String, Member> getMembers() {
+    public static HashMap<Integer, Member> getMembers() {
         return members;
     }
 }

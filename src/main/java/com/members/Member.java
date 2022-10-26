@@ -8,19 +8,26 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Member extends Person{
-    private  final String memberID;
+    private  final int memberID;
     private  Date startDate;
     private Membership membership;
 
 
-    public Member(String firstName, String lastName, Address address, String email, String memberID, String startDate, Membership membership) {
+    public Member(String firstName, String lastName, Address address, String email, int memberID, String startDate, Membership membership) {
         super(firstName, lastName, address, email);
         this.memberID = memberID;
         setStartDate(startDate);
         setMembership(membership);
     }
 
-    public String getMemberID() {
+    public Member(String firstName, String lastName, Address address, String email, int memberID, Date startDate, Membership membership) {
+        super(firstName, lastName, address, email);
+        this.memberID = memberID;
+        this.startDate = startDate;
+        setMembership(membership);
+    }
+
+    public int getMemberID() {
         return memberID;
     }
 

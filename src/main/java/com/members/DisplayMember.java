@@ -4,13 +4,13 @@ import java.util.HashMap;
 
 public class DisplayMember {
     private Member member;
-    private HashMap<String, Member> members;
+    private HashMap<Integer, Member> members;
 
     public DisplayMember(Member member){
         this.member = member;
     }
 
-    public DisplayMember(HashMap<String, Member> members){
+    public DisplayMember(HashMap<Integer, Member> members){
         this.members = members;
     }
 

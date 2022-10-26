@@ -11,6 +11,11 @@ public class Other extends  Membership {
         this.DISCOUNT_RATE = Console.readNumber("Enter the discount provided by this membership: ", 0.00, 1.00);
     }
 
+    public Other(int duration, double discount){
+        this.DURATION_IN_DAYS = duration;
+        this.DISCOUNT_RATE = discount;
+    }
+
     @Override
     public double getCost() {
         return super.getCost() * (1 - this.DISCOUNT_RATE);

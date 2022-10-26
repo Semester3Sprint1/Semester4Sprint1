@@ -4,6 +4,7 @@ import com.members.Member;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class CharityTournament  extends Tournament{
 
@@ -11,6 +12,12 @@ public class CharityTournament  extends Tournament{
     private String charityName;
 
     //Constructors
+
+    public CharityTournament(String name, Date startDate, Date endDate, String location, double entryFee, String charityName) {
+        super(name, startDate, endDate, location, entryFee);
+        this.moneyRaised = moneyRaised;
+        this.charityName = charityName;
+    }
 
     public CharityTournament(String name, String startDate, String endDate, String location, double entryFee, String charityName) {
         super(name, startDate, endDate, location, entryFee);

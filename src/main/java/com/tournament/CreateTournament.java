@@ -10,17 +10,17 @@ public class CreateTournament  {
 
         // Takes input from user to build tournament constructor
 
-       String name = Console.readLine("Enter Tournament Name: ");
+       String name = Console.readLine("Enter Tournament Name: ", 5, 200);
         String startDate = Console.readStringDate("Enter Tournament Start Date (03/22/2022) format : ");
         String endDate = Console.readStringDate("Enter Tournament End Date (03/22/2022) format :");
         Console.nextLine();
-        String location = Console.readLine("Enter Tournament Location: ");
+        String location = Console.readLine("Enter Tournament Location: ", 5, 200);
         double entryFee =  Console.readNumber("Enter Entry fee: ", 0);
         Console.nextLine();
         String  selection = Console.readChar("Enter Tournament Type (C) Charity or (T) Competitive :" , "C", "T");
         Console.nextLine();
         if(selection.toUpperCase().equals("C")){
-             String charityName = Console.readLine("Enter Charity Name: ");
+             String charityName = Console.readLine("Enter Charity Name: ", 3, 150);
             SearchForTournament.tList.add(new CharityTournament(name, startDate, endDate, location, entryFee, charityName));
         }else{
              double cashPrize = Console.readNumber("Enter Cash Prize: ", 1000, 100_000 );

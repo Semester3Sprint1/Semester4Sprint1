@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class MemberTest {
     Address address = new Address("120 Anywhere St.", "Anywhere", "A0K 0U0", "NL","Canada");
     Membership membership = new Normal();
-    Member member = new Member("Cody", "Barrett", address, "codybarrett@email.com", "1002", "01/01/1990", membership);
+    Member member = new Member("Cody", "Barrett", address, "codybarrett@email.com", 1002, "01/01/1990", membership);
 
     @Test
 
@@ -45,8 +45,8 @@ public class MemberTest {
     @Test
 
     public void testGetMemberID(){
-        String result = member.getMemberID();
-        String expectedResult = "1002";
+        int result = member.getMemberID();
+        int expectedResult = 1002;
         Assertions.assertEquals(result, expectedResult);
     }
 

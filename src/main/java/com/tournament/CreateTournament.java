@@ -1,9 +1,20 @@
 package com.tournament;
 
+import com.database.GetMember;
+import com.database.GetTournament;
 import com.general.Console;
+import com.members.Member;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class CreateTournament  {
+
+    public static void loadTournament(){
+        GetTournament connection = new GetTournament();
+        SearchForTournament.tList = connection.getTournament();
+    }
 
 
     public static  void userInput(){

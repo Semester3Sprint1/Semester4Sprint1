@@ -30,8 +30,6 @@ public class DateCheck implements  DateValidator{
             return -1;
         else return 0;
 
-
-
     }
 
     @Override

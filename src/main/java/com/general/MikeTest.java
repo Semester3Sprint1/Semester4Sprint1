@@ -1,5 +1,6 @@
 package com.general;
 
+import com.database.GetTournament;
 import com.members.Address;
 import com.members.Member;
 import com.members.membership.Membership;
@@ -21,6 +22,10 @@ public class MikeTest {
         DateValidator  validator = new DateCheck(t1.getStartDateObject(), t1.getEndDateObject());
         int dateCheck = validator.dateCheck();
         System.out.println(dateCheck);
+
+        GetTournament test = new GetTournament();
+        test.getTournament();
+
 
 
     }

@@ -55,6 +55,16 @@ public class Tournament {
 
     }
 
+    public Tournament(String name, Date startDate, Date endDate, String location, double entryFee){
+        setName(name);
+        this.startDate = startDate;
+        this.endDate = endDate;
+        setLocation(location);
+        setEntryFee(entryFee);
+
+    }
+
+
     // Getters
 
     public String getName() {
@@ -76,6 +86,8 @@ public class Tournament {
 
         return startDateString;
     }
+
+
 
     public void setStartDate(String date){
     DateFormat df = new SimpleDateFormat("MM/dd/yyyy");

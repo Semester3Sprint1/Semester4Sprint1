@@ -20,24 +20,26 @@ public class TournamentMenu {
                     2. Register Member 
                     3. Remove Member
                     4. Display Participating Member by Tournament 
-                    5. Return to Main Menu
+                    5. Edit Tournament Details
+                    6. Return to Main Menu
                     """);
 
-            int selection = (int) Console.readNumber("Enter Selection: ", 1, 5);
+            int selection = (int) Console.readNumber("Enter Selection: ", 1, 6);
             Console.nextLine();
             System.out.println();
 
             switch (selection) {
                 case 1 -> CreateTournament.userInput();
                 case 2 -> AddMemberToTournamentMenu.show();
-                case 3 -> System.out.println("Remove Member from Tournament");
+                case 3 -> RemoveMemberFromTournamentMenu.show();
                 case 4 -> DisplayMemberByTournamentMenu.show();
-                case 5 -> {
+                case 5 -> System.out.println("Edit Tournament Details");
+                case 6 -> {
                     System.out.println("Returning to Main Menu");
                     HomeMenu.show();
                 }
                 default -> {
-                    System.out.println("Invalid Entry. Please choose a option between 1 and 5");
+                    System.out.println("Invalid Entry. Please choose a option between 1 and 6");
                     System.out.println();
                 }
             }

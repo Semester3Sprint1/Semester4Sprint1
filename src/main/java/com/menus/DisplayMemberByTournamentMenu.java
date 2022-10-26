@@ -8,9 +8,18 @@ public class DisplayMemberByTournamentMenu {
 
     public static void show(){
         // finds the tournament by its name
-        Tournament tournamentToUse = SearchForTournament.findTournament(Console.readLine("Enter Tournament Name : "));
-        System.out.println();
-        tournamentToUse.displayTournamentParticipants();
+        while(true){
+            Tournament tournamentToUse = SearchForTournament.findTournament(Console.readLine("Enter Tournament Name : "));
+            System.out.println();
+            if(tournamentToUse != null){
+                tournamentToUse.displayTournamentParticipants();
+                break;
+            }else{
+                System.out.println("Error Invalid Tournament Name, Please Try again");
+            }
+        }
+
+
     }
 }
 

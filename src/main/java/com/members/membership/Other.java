@@ -5,6 +5,7 @@ import com.general.Console;
 public class Other extends  Membership {
     private final int DURATION_IN_DAYS;
     private final double DISCOUNT_RATE;
+    private final int typeCode = 5;
 
     public Other() {
         this.DURATION_IN_DAYS = (int) Console.readNumber("Enter membership duration: ", 1, 365);
@@ -21,8 +22,18 @@ public class Other extends  Membership {
         return super.getCost() * (1 - this.DISCOUNT_RATE);
     }
 
+    @Override
     public int getDURATION_IN_DAYS() {
         return DURATION_IN_DAYS;
+    }
+
+    @Override
+    public double getDISCOUNT_RATE() {
+        return DISCOUNT_RATE;
+    }
+
+    public int getTypeCode() {
+        return typeCode;
     }
 
     @Override

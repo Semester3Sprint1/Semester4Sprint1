@@ -3,6 +3,7 @@ package com.members.membership;
 public class SpecialOffer extends Membership {
     private final int DURATION_IN_DAYS;
     private final double DISCOUNT_RATE;
+    private final int typeCode = 3;
 
     public SpecialOffer() {
         this.DURATION_IN_DAYS = 60;
@@ -19,8 +20,18 @@ public class SpecialOffer extends Membership {
         return super.getCost() * (1 - this.DISCOUNT_RATE);
     }
 
+    @Override
     public int getDURATION_IN_DAYS() {
         return DURATION_IN_DAYS;
+    }
+
+    @Override
+    public double getDISCOUNT_RATE() {
+        return DISCOUNT_RATE;
+    }
+
+    public int getTypeCode() {
+        return typeCode;
     }
 
     @Override

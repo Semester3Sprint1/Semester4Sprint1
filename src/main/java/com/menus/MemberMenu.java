@@ -22,7 +22,7 @@ public class MemberMenu {
             System.out.println();
 
             switch(selection){
-                case 1 -> AddMember.createDefaultMember();
+                case 1 -> AddMember.createMember();
                 case 2 -> {
                     DisplayMember display = new DisplayMember(AddMember.getMembers());
                     display.displayMembers();

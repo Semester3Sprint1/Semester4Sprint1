@@ -9,7 +9,7 @@ public class DisplayMemberByTournamentMenu {
     public static void show(){
         // finds the tournament by its name
         while(true){
-            Tournament tournamentToUse = SearchForTournament.findTournament(Console.readLine("Enter Tournament Name : "));
+            Tournament tournamentToUse = SearchForTournament.findTournament(Console.readLine("Enter Tournament Name : ", 10, 200));
             System.out.println();
             if(tournamentToUse != null){
                 tournamentToUse.displayTournamentParticipants();

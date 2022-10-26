@@ -11,8 +11,8 @@ public class AddMemberToTournamentMenu {
     public static void show(){
         // finds the tournament by its name
         while(true){
-            Tournament tournamentToUse = SearchForTournament.findTournament(Console.readLine("Enter Tournament Name : "));
-            Member memberToAdd = SearchForMember.findMember(Console.readString("Enter member ID: "));
+            Tournament tournamentToUse = SearchForTournament.findTournament(Console.readLine("Enter Tournament Name : ", 10, 200));
+            Member memberToAdd = SearchForMember.findMember(Console.readString("Enter member ID: ", 2, 20));
             Console.nextLine();
             // find member to add by ID
             if(memberToAdd != null && tournamentToUse != null){

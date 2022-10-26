@@ -1,11 +1,8 @@
 package com.menus;
 
 import com.general.Console;
-import com.members.Member;
-import com.members.SearchForMember;
 import com.tournament.CreateTournament;
-import com.tournament.SearchForTournament;
-import com.tournament.Tournament;
+
 
 public class TournamentMenu {
 

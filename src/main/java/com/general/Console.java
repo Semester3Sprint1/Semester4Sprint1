@@ -31,11 +31,46 @@ public class Console {
     }
 
     // For string inputs
+
+    // Read String uses next and is designed for one word inputs
     public static String readString(String prompt) {
         String value;
         System.out.print(prompt);
         value = input.next().trim();
         return value.toUpperCase();
+    }
+
+
+    public static String readString(String prompt, int min, int max){
+        String value;
+
+        while(true){
+            System.out.print(prompt);
+            value = input.next().trim();
+
+            if(value.length() < min || value.length() > max){
+                System.out.println("Invalid Entry: Input must be greater than " + min + " and less than " +  max);
+            }else break;
+
+        }
+        return value;
+    }
+
+    // Readline is designed for multi-word inputs
+
+    public static String readLine(String prompt, int min, int max){
+        String value;
+
+        while(true){
+            System.out.print(prompt);
+            value = input.nextLine().trim();
+
+            if(value.length() < min || value.length() > max){
+                System.out.println("Invalid Entry: Input must be greater than " + min + " and less than " +  max);
+            }else break;
+
+        }
+        return value;
     }
 
 

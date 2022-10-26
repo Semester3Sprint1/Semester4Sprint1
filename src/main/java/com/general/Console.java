@@ -62,7 +62,20 @@ public class Console {
             }
         }
         return choice;
+    }
 
-
+    public static String readStringDate(String prompt){
+        String value;
+        boolean check;
+        DateValidator validator = new DateCheck("MM/dd/yyyy");
+        while(true){
+            System.out.print(prompt);
+            value = input.next();
+           check =  validator.isValid(value);
+            if(check)
+                break;
+            else System.out.println("Invalid Entry. Use the format mm/dd/yyyy");
+        }
+        return value;
     }
 }

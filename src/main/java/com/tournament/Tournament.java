@@ -1,6 +1,9 @@
 package com.tournament;
 
+import com.general.DateCheck;
+import com.general.DateValidator;
 import com.members.Member;
+
 
 import java.util.Comparator;
 import java.util.Date;
@@ -55,6 +58,14 @@ public class Tournament {
         return name;
     }
 
+    public Date getStartDateObject(){
+        return startDate;
+    }
+
+    public Date getEndDateObject(){
+        return endDate;
+    }
+
     public String getStartDate(){
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
         String startDateString = df.format(this.startDate);
@@ -95,7 +106,7 @@ public class Tournament {
         Date endDate = null;
         try {
             endDate = df.parse(date);
-            this.endDate = (Date) endDate;
+            this.endDate =  endDate;
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
@@ -117,6 +128,10 @@ public class Tournament {
 
     public void addMember(Member member){
         memberList.add(member);
+    }
+
+    public void deleteMember(Member member){
+        memberList.remove(member);
     }
 
 

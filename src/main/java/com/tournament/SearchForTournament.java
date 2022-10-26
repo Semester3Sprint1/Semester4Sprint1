@@ -9,6 +9,8 @@ public class SearchForTournament {
 
     public static ArrayList<Tournament> tList = new ArrayList<>();
 
+    public static int tournamentCount = tList.size();
+
     //to find a tournament in the list by its name // Note prob should change to id
     public static Tournament findTournament(String name){
         Tournament tournament = tList.stream()

@@ -17,17 +17,20 @@ public class CharityTournament  extends Tournament{
         super(name, startDate, endDate, location, entryFee);
         this.moneyRaised = moneyRaised;
         this.charityName = charityName;
+        tournamentCount++;
     }
 
     public CharityTournament(String name, String startDate, String endDate, String location, double entryFee, String charityName) {
         super(name, startDate, endDate, location, entryFee);
         setCharityName(charityName);
+        tournamentCount++;
 
     }
 
     public CharityTournament(String name, String startDate, String endDate, String location, double entryFee, ArrayList<Member> memberList, String charityName) {
         super(name, startDate, endDate, location, entryFee, memberList);
         setCharityName(charityName);
+        tournamentCount++;
     }
 
     //Getters

@@ -20,6 +20,8 @@ public class Tournament {
     private  String location;
     private  double entryFee;
 
+    public static int  tournamentCount = 0;
+
 
 
     // this list stores Members by Tournament
@@ -43,6 +45,7 @@ public class Tournament {
         setLocation(location);
         this.entryFee = entryFee;
         this.memberList = memberList;
+
     }
 
     public Tournament(String name, String startDate, String endDate, String location, double entryFee){
@@ -52,6 +55,7 @@ public class Tournament {
         setEndDate(endDate);
         setLocation(location);
         setEntryFee(entryFee);
+
 
     }
 

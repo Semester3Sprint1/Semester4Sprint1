@@ -21,6 +21,7 @@ public class Tournament {
     private  double entryFee;
 
 
+
     // this list stores Members by Tournament
    private ArrayList<Member> memberList = new ArrayList<>();
 
@@ -35,6 +36,7 @@ public class Tournament {
 
     }
     public Tournament(String name, String startDate,String  endDate, String location, double entryFee, ArrayList<Member> memberList) {
+
         setName(name);
         setStartDate(startDate);
         setEndDate(endDate);
@@ -44,6 +46,7 @@ public class Tournament {
     }
 
     public Tournament(String name, String startDate, String endDate, String location, double entryFee){
+
         setName(name);
         setStartDate(startDate);
         setEndDate(endDate);
@@ -65,6 +68,7 @@ public class Tournament {
     public Date getEndDateObject(){
         return endDate;
     }
+
 
     public String getStartDate(){
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
@@ -97,6 +101,10 @@ public class Tournament {
 
     public double getEntryFee(){
         return this.entryFee;
+    }
+
+    public ArrayList<Member> getMemberList() {
+        return memberList;
     }
 
     //Setters

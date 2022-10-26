@@ -14,21 +14,29 @@ public class GetMember extends Connection {
     public HashMap<Integer, Member> getMembers() {
         HashMap<Integer, Member> memberList = new HashMap<>();
 
-        String SQL = "SELECT member_id, first_name, last_name, email_address, start_date, city, province, postal, street, duration, cost, discount_rate, plan_name, plan_id FROM member\n" +
-                "JOIN address_member USING (member_id)\n" +
-                "JOIN address USING (address_id)\n" +
-                "JOIN member_plans USING (plan_id)\n" +
-                "JOIN memberships USING (type_id)";
+        String SQL = """
+                SELECT member_id, first_name, last_name, email_address, start_date, city, province, postal, street, 
+                duration, cost, discount_rate, plan_name, plan_id FROM member
+                JOIN address_member USING (member_id)
+                JOIN address USING (address_id)
+                JOIN member_plans USING (plan_id)
+                JOIN memberships USING (type_id)""";
         try (java.sql.Connection conn = connect();
              PreparedStatement pstmt = conn.prepareStatement(SQL)) {
 
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
-                Address address = new Address(rs.getString("street"), rs.getString("city"), rs.getString("postal"), rs.getString("province"), "Canada");
-                Membership membership = getMembership(rs.getString("plan_name"), rs.getInt("plan_id"), rs.getInt("duration"), rs.getDouble("discount_rate"));
+                Address address = new Address(rs.getString("street"), rs.getString("city"),
+                        rs.getString("postal"), rs.getString("province"), "Canada");
 
-                Member member = new Member(rs.getString("first_name"), rs.getString("last_name"), address, rs.getString("email_address"), rs.getInt("member_id"), rs.getDate("start_date"), membership);
+                Membership membership = getMembership(rs.getString("plan_name"),
+                        rs.getInt("plan_id"), rs.getInt("duration"),
+                        rs.getDouble("discount_rate"));
+
+                Member member = new Member(rs.getString("first_name"), rs.getString("last_name"),
+                        address, rs.getString("email_address"), rs.getInt("member_id"),
+                        rs.getDate("start_date"), membership);
 
                 memberList.put(rs.getInt("member_id"), member);
             }

@@ -6,9 +6,7 @@ import com.members.membership.Membership;
 
 import java.sql.*;
 
-import static com.database.App.connect;
-
-public class InsertMember {
+public class InsertMember extends Connection {
     public int addMembershipPlan(Membership planToAdd){
         // Add Membership
         String SQL = """
@@ -18,7 +16,7 @@ public class InsertMember {
 
         int id = 0;
 
-        try (Connection conn = connect();
+        try (java.sql.Connection conn = connect();
              PreparedStatement pstmt = conn.prepareStatement(SQL,
                      Statement.RETURN_GENERATED_KEYS)) {
 
@@ -55,7 +53,7 @@ public class InsertMember {
 
         int id = 0;
 
-        try (Connection conn = connect();
+        try (java.sql.Connection conn = connect();
              PreparedStatement pstmt = conn.prepareStatement(SQL,
                      Statement.RETURN_GENERATED_KEYS)) {
 
@@ -92,7 +90,7 @@ public class InsertMember {
 
         int id = 0;
 
-        try (Connection conn = connect();
+        try (java.sql.Connection conn = connect();
              PreparedStatement pstmt = conn.prepareStatement(SQL,
                      Statement.RETURN_GENERATED_KEYS)) {
 
@@ -126,7 +124,7 @@ public class InsertMember {
                 \taddress_id, member_id)
                 \tVALUES (?, ?);""";
 
-        try (Connection conn = connect();
+        try (java.sql.Connection conn = connect();
              PreparedStatement pstmt = conn.prepareStatement(SQL,
                      Statement.RETURN_GENERATED_KEYS)) {
 

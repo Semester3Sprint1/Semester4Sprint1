@@ -1,19 +1,19 @@
 package com.members;
 
-import com.database.App;
+import com.database.Connection;
+import com.database.GetMember;
 import com.database.InsertMember;
 import com.general.Console;
 import com.members.membership.*;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class AddMember {
     private static HashMap<Integer, Member> members = new HashMap<>();
 
     public static void loadMembers(){
-        App app = new App();
-        members = app.getMembers();
+        GetMember connection = new GetMember();
+        members = connection.getMembers();
 
         new SearchForMember(members);
     }

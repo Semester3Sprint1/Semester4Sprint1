@@ -1,12 +1,11 @@
 package com.database;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Select {
-    private Connection connection = new App().connect();
+    private java.sql.Connection connection = new Connection().connect();
 
     public void selectTest(){
         // Hard coded select statement - should probably include a version that takes in a value

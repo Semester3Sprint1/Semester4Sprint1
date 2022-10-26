@@ -1,5 +1,8 @@
 package com.members;
 
+import com.database.Connection;
+import com.database.GetMember;
+import com.database.InsertMember;
 import com.general.Console;
 import com.members.membership.*;
 
@@ -8,23 +11,35 @@ import java.util.HashMap;
 public class AddMember {
     private static HashMap<Integer, Member> members = new HashMap<>();
 
-    public static Member createMember(){
-        // Perhaps we should change this to an auto-generated value?
-        int memberID = (int) Console.readNumber("Enter member ID: ", 0);
+    public static void loadMembers(){
+        GetMember connection = new GetMember();
+        members = connection.getMembers();
 
+        new SearchForMember(members);
+    }
+
+    public static Member createMember(){
         // Membership Type
         Membership memType = choosePlanType();
-        Console.nextLine();
+        //Console.nextLine();
 
         // Member Info
-        String firstName = Console.readString("First Name: ");
-        String lastName = Console.readString("Last Name: ");
-        String email = Console.readString("Email Address: ");
+        String firstName = Console.readString("First Name: ", 1, 32);
+        String lastName = Console.readString("Last Name: ", 1, 32);
+        String email = Console.readString("Email Address: ", 1, 32);
+
+        //Console.nextLine();
         String startDate =  Console.readStringDate("Start Date (MM/DD/YYYY): ");
 
         Address address = getAddress();
 
-        Member member = new Member(firstName, lastName, address, email, memberID, startDate, memType);
+        Member member = new Member(firstName, lastName, address, email, startDate, memType);
+
+
+        InsertMember insert = new InsertMember();
+        int newID = insert.addMemberToDB(member);
+
+        member.setMemberID(newID);
 
         members.put(member.getMemberID(), member);
 
@@ -33,10 +48,24 @@ public class AddMember {
         return member;
     }
 
+    public static Address getAddress(){
+        Console.nextLine();
+
+        // Address Info
+        String streetAddress = Console.readLine("Street Address: ", 1, 32);
+        String city = Console.readLine("City: ", 1, 32);
+        String province = Console.readLine("Province: ", 1, 32);
+        String postalCode = Console.readLine("Postal Code: ", 1, 32);
+
+        Address address = new Address(streetAddress, city, postalCode, province, "Canada");
+        return address;
+    }
+
+    // These two functions could be useful for testing
     public static Member createDefaultMember(){
 
         // Perhaps we should change this to an auto-generated value?
-        int memberID = (int) Console.readNumber("Enter member ID: ", 0);
+        int memberID = 1;
 
         // Membership Type
         Membership memType = choosePlanType();
@@ -57,17 +86,6 @@ public class AddMember {
         new SearchForMember(members);
 
         return member;
-    }
-
-    public static Address getAddress(){
-        // Address Info
-        String streetAddress = Console.readLine("Street Address: ");
-        String city = Console.readLine("City: ");
-        String province = Console.readLine("Province: ");
-        String postalCode = Console.readLine("Postal Code: ");
-
-        Address address = new Address(streetAddress, city, postalCode, province, "Canada");
-        return address;
     }
 
     public static Address getDefaultAddress(){

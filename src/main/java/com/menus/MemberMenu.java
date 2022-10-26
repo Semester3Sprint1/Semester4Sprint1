@@ -15,22 +15,25 @@ public class MemberMenu {
                     Please Choose an Option:
                         1. Add Members
                         2. View All Members
-                        3. Member Management
+                        3. View Member by ID
                         4. Back to Main
                     """);
             int selection = (int) Console.readNumber("Enter Selection: " , 1,4);
             System.out.println();
 
             switch(selection){
-                case 1 -> AddMember.createDefaultMember();
+                case 1 -> AddMember.createMember();
                 case 2 -> {
                     DisplayMember display = new DisplayMember(AddMember.getMembers());
                     display.displayMembers();
                 }
                 case 3 -> {
-                    Member memberToEdit = SearchForMember.findMember((int) Console.readNumber("Enter member ID: ", 0));
-                    EditMemberMenu editMenu = new EditMemberMenu(memberToEdit);
-                    if (memberToEdit != null) editMenu.show();
+                    int memID = (int) Console.readNumber("Enter a member ID: " , 1);
+                    DisplayMember display = new DisplayMember(SearchForMember.findMember(memID));
+                    display.displayMember();
+//                    Member memberToEdit = SearchForMember.findMember((int) Console.readNumber("Enter member ID: ", 0));
+//                    EditMemberMenu editMenu = new EditMemberMenu(memberToEdit);
+//                    if (memberToEdit != null) editMenu.show();
                 }
                 case 4  -> {
                     System.out.println("Returning...");

@@ -40,6 +40,7 @@ public class testTournament{
         CharityTournament t1 = new CharityTournament(name, startDate, endDate, location, entryFee, charityName);
         CompetitiveTournament t2 = new CompetitiveTournament(name, startDate, endDate, location, entryFee, cashPrize);
         CompetitiveTournament t4 = new CompetitiveTournament("PG Open", "06/01/2022", "06/02/2022", "18 Hole Course", 5000, mockList, 10_000);
+        CharityTournament t5 = new CharityTournament("Charity Classic", "07/01/2022", "07/02/2022", "18 Holes", 1000, mockList, "Alex Charity");
         t1.setMoneyRaised(10_000);
         assertEquals(name, t1.getName());
         assertEquals(startDate, t1.getStartDate());

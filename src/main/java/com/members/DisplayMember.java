@@ -25,8 +25,9 @@ public class DisplayMember {
 
     public void displayMember(){
         if (member != null){
-        System.out.println("\nMember Info: ");
-        System.out.println(member);
-        System.out.println();
+            System.out.println("\nMember Info: ");
+            System.out.println("------------");
+            System.out.println(member);
+            System.out.println();
     }}
 }

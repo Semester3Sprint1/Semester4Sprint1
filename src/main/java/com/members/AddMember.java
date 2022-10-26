@@ -21,12 +21,14 @@ public class AddMember {
     public static Member createMember(){
         // Membership Type
         Membership memType = choosePlanType();
-        Console.nextLine();
+        //Console.nextLine();
 
         // Member Info
         String firstName = Console.readString("First Name: ", 1, 32);
         String lastName = Console.readString("Last Name: ", 1, 32);
         String email = Console.readString("Email Address: ", 1, 32);
+
+        //Console.nextLine();
         String startDate =  Console.readStringDate("Start Date (MM/DD/YYYY): ");
 
         Address address = getAddress();
@@ -46,6 +48,20 @@ public class AddMember {
         return member;
     }
 
+    public static Address getAddress(){
+        Console.nextLine();
+
+        // Address Info
+        String streetAddress = Console.readLine("Street Address: ", 1, 32);
+        String city = Console.readLine("City: ", 1, 32);
+        String province = Console.readLine("Province: ", 1, 32);
+        String postalCode = Console.readLine("Postal Code: ", 1, 32);
+
+        Address address = new Address(streetAddress, city, postalCode, province, "Canada");
+        return address;
+    }
+
+    // These two functions could be useful for testing
     public static Member createDefaultMember(){
 
         // Perhaps we should change this to an auto-generated value?
@@ -70,17 +86,6 @@ public class AddMember {
         new SearchForMember(members);
 
         return member;
-    }
-
-    public static Address getAddress(){
-        // Address Info
-        String streetAddress = Console.readLine("Street Address: ", 1, 32);
-        String city = Console.readLine("City: ", 1, 32);
-        String province = Console.readLine("Province: ", 1, 32);
-        String postalCode = Console.readLine("Postal Code: ", 1, 32);
-
-        Address address = new Address(streetAddress, city, postalCode, province, "Canada");
-        return address;
     }
 
     public static Address getDefaultAddress(){

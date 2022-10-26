@@ -93,6 +93,7 @@ public class Console {
         value = input.nextLine().trim();
         return value;
     }
+
     public static void nextLine(){
         // Skips to the next line
         input.nextLine();
@@ -118,7 +119,7 @@ public class Console {
         DateValidator validator = new DateCheck("MM/dd/yyyy");
         while(true){
             System.out.print(prompt);
-            value = input.nextLine().trim();
+            value = input.next().trim();
            check =  validator.isValid(value);
             if(check)
                 break;

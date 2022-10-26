@@ -2,6 +2,7 @@ package com.tournament;
 
 import com.database.GetMember;
 import com.database.GetTournament;
+import com.database.InsertTournament;
 import com.general.Console;
 import com.members.Member;
 
@@ -18,6 +19,7 @@ public class CreateTournament  {
 
 
     public static  void userInput(){
+        InsertTournament insert = new InsertTournament();
 
         // Takes input from user to build tournament constructor
 
@@ -32,10 +34,17 @@ public class CreateTournament  {
         Console.nextLine();
         if(selection.toUpperCase().equals("C")){
              String charityName = Console.readLine("Enter Charity Name: ", 3, 150);
-            SearchForTournament.tList.add(new CharityTournament(name, startDate, endDate, location, entryFee, charityName));
+             CharityTournament newTournament = new CharityTournament(name, startDate, endDate, location, entryFee, charityName);
+             insert.addTournamentToDB(newTournament);
+             insert.addCharityTypeToDB(newTournament);
+             SearchForTournament.tList.add(newTournament);
         }else{
              double cashPrize = Console.readNumber("Enter Cash Prize: ", 1000, 100_000 );
-            SearchForTournament.tList.add(new CompetitiveTournament(name, startDate, endDate, location, entryFee, cashPrize));
+             CompetitiveTournament newTournament = new CompetitiveTournament(name, startDate, endDate, location, entryFee, cashPrize);
+             insert.addTournamentToDB(newTournament);
+             insert.addCompetitiveTypeToDB(newTournament);
+             SearchForTournament.tList.add(newTournament);
+
         }
 
     }

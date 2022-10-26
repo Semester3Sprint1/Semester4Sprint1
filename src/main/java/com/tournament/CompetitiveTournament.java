@@ -17,16 +17,19 @@ public class CompetitiveTournament extends Tournament{
     public CompetitiveTournament(String name, Date startDate, Date endDate, String location, double entryFee, double cashPrize) {
         super(name, startDate, endDate, location, entryFee);
         this.cashPrize = cashPrize;
+        tournamentCount++;
     }
 
     public CompetitiveTournament(String name, String startDate, String endDate, String location, double entryFee, ArrayList<Member> memberList, double cashPrize) {
         super(name, startDate, endDate, location, entryFee, memberList);
         this.cashPrize = cashPrize;
+        tournamentCount++;
     }
 
     public CompetitiveTournament(String name, String startDate, String endDate, String location, double entryFee, double cashPrize) {
         super(name, startDate, endDate, location, entryFee);
         this.cashPrize = cashPrize;
+        tournamentCount++;
     }
 
     //Getters

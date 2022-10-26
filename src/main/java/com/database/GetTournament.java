@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 public class GetTournament extends Connection{
 
+
     public ArrayList<Tournament> getTournament(){
         ArrayList<Tournament> tournamentList = new ArrayList<>();
 

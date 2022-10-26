@@ -1,6 +1,9 @@
 package com.tournament;
 
+import com.general.DateCheck;
+import com.general.DateValidator;
 import com.members.Member;
+
 
 import java.util.Comparator;
 import java.util.Date;
@@ -17,9 +20,11 @@ public class Tournament {
     private  String location;
     private  double entryFee;
 
+
+    // this list stores Members by Tournament
    private ArrayList<Member> memberList = new ArrayList<>();
 
-    // sort past , upcoming , current by date
+    // Constructors
 
     public Tournament (){
         this.name = "Not Available";
@@ -47,8 +52,18 @@ public class Tournament {
 
     }
 
+    // Getters
+
     public String getName() {
         return name;
+    }
+
+    public Date getStartDateObject(){
+        return startDate;
+    }
+
+    public Date getEndDateObject(){
+        return endDate;
     }
 
     public String getStartDate(){
@@ -68,7 +83,6 @@ public class Tournament {
             throw new RuntimeException(e);
         }
 
-
     }
 
     public String getEndDate(){
@@ -77,42 +91,51 @@ public class Tournament {
 
         return endDateString;
     }
-
-    public void setEndDate(String date){
-        DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-        Date endDate = null;
-        try {
-            endDate = df.parse(date);
-            this.endDate = (Date) endDate;
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     public String getLocation(){
         return this.location;
-    }
-
-    public void setLocation(String location){
-        this.location = location;
     }
 
     public double getEntryFee(){
         return this.entryFee;
     }
 
+    //Setters
+
+    public void setEndDate(String date){
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+        Date endDate = null;
+        try {
+            endDate = df.parse(date);
+            this.endDate =  endDate;
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void setLocation(String location){
+        this.location = location;
+    }
+
     public void setEntryFee(double entryFee){
         this.entryFee = entryFee;
     }
-
 
     public void setName(String name) {
         this.name = name;
     }
 
+    // Adds Member to Tournament
+
     public void addMember(Member member){
         memberList.add(member);
     }
+
+    public void deleteMember(Member member){
+        memberList.remove(member);
+    }
+
+
+    // Display Tournament Member List
 
     public void displayTournamentParticipants(){
         System.out.println(getName() + " Member Participants");
@@ -120,6 +143,8 @@ public class Tournament {
                 .sorted(Comparator.comparing(Member::getName))
                 .forEach(m-> System.out.println(m.getName()));
     }
+
+    // String Output
 
     @Override
     public String toString(){

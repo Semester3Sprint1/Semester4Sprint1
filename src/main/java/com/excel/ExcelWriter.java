@@ -46,7 +46,7 @@
 //            rowHeading.createCell(5).setCellValue("Start Date: ");
 //            rowHeading.createCell(6).setCellValue("Membership Type: ");
 //
-//        }
+
 //
 //     while(keepRunning){
 //        Scanner scnr = new Scanner(System.in);
@@ -79,6 +79,7 @@
 //
 //        }
 //
+
 //            //This data needs to be written (Object[])
 //            Map <String, Object[]> data = new TreeMap<String, Object[]>();
 //            data.put("2", new Object[] {firstName, lastName, address, email, memberID, startDate, membership});
@@ -86,8 +87,7 @@
 //            //Iterate over data and write to sheet
 //            Set<String> keyset = data.keySet();
 //            int rownum = 1;
-//            XSSFSheet sheet = getSheet("data");
-//
+
 //            for(String Key : keyset)
 //            {
 //                XSSFRow row = sheet.createRow(rownum++);
@@ -139,10 +139,3 @@
 //            }
 //        }
 //     }
-//
-//    private static XSSFSheet getSheet(String data) {
-//        XSSFSheet sheet = members.getSheet("data");
-//        return sheet;
-//    }
-//}//pub static void end brace
-//}//pub class end brace

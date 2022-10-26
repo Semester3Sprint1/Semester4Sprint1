@@ -22,7 +22,7 @@ public class HomeMenu {
             System.out.println();
 
             switch(selection){
-                case 1 -> AddMember.createMember();
+                case 1 -> MemberMenu.show();
                 case 2 -> TournamentMenu.show();
                 case 3 -> System.out.println("Reports Section");
                 case 4  -> {

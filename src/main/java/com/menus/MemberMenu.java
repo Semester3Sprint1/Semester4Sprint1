@@ -15,7 +15,7 @@ public class MemberMenu {
                     Please Choose an Option:
                         1. Add Members
                         2. View All Members
-                        3. Member Management
+                        3. Member Management (NOT YET IMPLEMENTED)
                         4. Back to Main
                     """);
             int selection = (int) Console.readNumber("Enter Selection: " , 1,4);
@@ -28,9 +28,10 @@ public class MemberMenu {
                     display.displayMembers();
                 }
                 case 3 -> {
-                    Member memberToEdit = SearchForMember.findMember((int) Console.readNumber("Enter member ID: ", 0));
-                    EditMemberMenu editMenu = new EditMemberMenu(memberToEdit);
-                    if (memberToEdit != null) editMenu.show();
+                    System.out.println("Member management, eventually");
+//                    Member memberToEdit = SearchForMember.findMember((int) Console.readNumber("Enter member ID: ", 0));
+//                    EditMemberMenu editMenu = new EditMemberMenu(memberToEdit);
+//                    if (memberToEdit != null) editMenu.show();
                 }
                 case 4  -> {
                     System.out.println("Returning...");

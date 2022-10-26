@@ -6,7 +6,7 @@ public class Trial extends Membership {
     private final int typeCode = 2;
 
     public Trial() {
-        this.DURATION_IN_DAYS = 15;
+        this.DURATION_IN_DAYS = 30;
         this.DISCOUNT_RATE = 1;
     }
 

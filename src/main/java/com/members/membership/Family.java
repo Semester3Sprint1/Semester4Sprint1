@@ -15,10 +15,13 @@ public class Family extends Membership {
     public Family() {
         this.DURATION_IN_DAYS = 365;
         while (true){
-            int memID = (int) Console.readNumber("Enter the Member ID of each additional family member, or enter 0 to finish", 0);
+            int memID = (int) Console.readNumber("Enter the Member ID of each additional family member, or enter 0 to finish: ", 0);
             if (memID == 0) break;
             Member searchedMember = SearchForMember.findMember(memID);
-            if (searchedMember != null) familyMembers.add(searchedMember.getMemberID());
+            if (searchedMember != null) {
+                familyMembers.add(searchedMember.getMemberID());
+                System.out.println("Family member added.");
+            }
         }
 
         if (familyMembers.size() > 5) this.DISCOUNT_RATE = 0.5;

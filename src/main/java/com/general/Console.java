@@ -1,5 +1,6 @@
 package com.general;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Console {
@@ -9,11 +10,17 @@ public class Console {
     public static double readNumber(String prompt, double min) {
         double value;
         while (true) {
-            System.out.print(prompt);
-            value = input.nextDouble();
-            if (value >= min) {
-                break;
-            } else System.out.println("Enter a value greater than " + min);
+            try {
+                System.out.print(prompt);
+                value = input.nextDouble();
+                if (value >= min) {
+                    break;
+                } else System.out.println("Enter a value greater than " + min);
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid entry. Please enter a number.");
+                input.nextLine();
+            }
+
         }
         return value;
     }
@@ -21,11 +28,17 @@ public class Console {
     public static double readNumber(String prompt, double min, double max) {
         double value;
         while (true) {
-            System.out.print(prompt);
-            value = input.nextDouble();
-            if (value >= min && value <= max) {
-                break;
-            } else System.out.println("Enter a value between " + min + " and " + max);
+            try {
+                System.out.print(prompt);
+                value = input.nextDouble();
+                if (value >= min && value <= max) {
+                    break;
+                } else System.out.println("Enter a value between " + min + " and " + max);
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid entry. Please enter a number.");
+                input.nextLine();
+            }
+
         }
         return value;
     }

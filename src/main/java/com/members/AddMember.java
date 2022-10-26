@@ -1,6 +1,7 @@
 package com.members;
 
 import com.database.App;
+import com.database.InsertMember;
 import com.general.Console;
 import com.members.membership.*;
 
@@ -33,8 +34,8 @@ public class AddMember {
         Member member = new Member(firstName, lastName, address, email, startDate, memType);
 
 
-        App app = new App();
-        int newID = app.addMemberToDB(member);
+        InsertMember insert = new InsertMember();
+        int newID = insert.addMemberToDB(member);
 
         member.setMemberID(newID);
 
@@ -48,7 +49,7 @@ public class AddMember {
     public static Member createDefaultMember(){
 
         // Perhaps we should change this to an auto-generated value?
-        int memberID = (int) Console.readNumber("Enter member ID: ", 0);
+        int memberID = 1;
 
         // Membership Type
         Membership memType = choosePlanType();

@@ -78,6 +78,6 @@ public class Member extends Person{
 
     @Override
     public String toString(){
-        return("Member ID: " + getMemberID() + "\n" + super.toString() + "\n" + getMembership()  + "\nStart Date: "+ getStartDate());
+        return("Member ID: " + getMemberID() + "\n" + super.toString() + "\n\n" + getMembership()  + "\nStart Date: "+ getStartDate());
     }
 }

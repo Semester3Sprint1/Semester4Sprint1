@@ -24,9 +24,9 @@ public class AddMember {
         Console.nextLine();
 
         // Member Info
-        String firstName = Console.readString("First Name: ");
-        String lastName = Console.readString("Last Name: ");
-        String email = Console.readString("Email Address: ");
+        String firstName = Console.readString("First Name: ", 1, 32);
+        String lastName = Console.readString("Last Name: ", 1, 32);
+        String email = Console.readString("Email Address: ", 1, 32);
         String startDate =  Console.readStringDate("Start Date (MM/DD/YYYY): ");
 
         Address address = getAddress();
@@ -74,10 +74,10 @@ public class AddMember {
 
     public static Address getAddress(){
         // Address Info
-        String streetAddress = Console.readLine("Street Address: ");
-        String city = Console.readLine("City: ");
-        String province = Console.readLine("Province: ");
-        String postalCode = Console.readLine("Postal Code: ");
+        String streetAddress = Console.readLine("Street Address: ", 1, 32);
+        String city = Console.readLine("City: ", 1, 32);
+        String province = Console.readLine("Province: ", 1, 32);
+        String postalCode = Console.readLine("Postal Code: ", 1, 32);
 
         Address address = new Address(streetAddress, city, postalCode, province, "Canada");
         return address;

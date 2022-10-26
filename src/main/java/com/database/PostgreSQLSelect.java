@@ -14,7 +14,7 @@ public class PostgreSQLSelect {
             Class.forName("org.postgresql.Driver");
             c = DriverManager
                     .getConnection("jdbc:postgresql://golf-database.cjuqnyg23emc.us-east-1.rds.amazonaws.com:5432/golf",
-                            "alex", "password");
+                            "mike", "database");
             c.setAutoCommit(false);
             System.out.println("Opened database successfully");
 

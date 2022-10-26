@@ -34,7 +34,7 @@ public class Console {
     public static String readString(String prompt) {
         String value;
         System.out.print(prompt);
-        value = input.next();
+        value = input.next().trim();
         return value.toUpperCase();
     }
 
@@ -42,7 +42,7 @@ public class Console {
     public static String readLine(String prompt){
         String value;
         System.out.print(prompt);
-        value = input.nextLine();
+        value = input.nextLine().trim();
         return value;
     }
     public static void nextLine(){
@@ -54,7 +54,7 @@ public class Console {
         String choice;
         while (true) {
             System.out.print(prompt);
-            choice = input.next();
+            choice = input.next().trim();
             if (choice.toUpperCase().equals(opt1) || choice.toUpperCase().equals(opt2)) {
                 break;
             } else {
@@ -62,7 +62,20 @@ public class Console {
             }
         }
         return choice;
+    }
 
-
+    public static String readStringDate(String prompt){
+        String value;
+        boolean check;
+        DateValidator validator = new DateCheck("MM/dd/yyyy");
+        while(true){
+            System.out.print(prompt);
+            value = input.next().trim();
+           check =  validator.isValid(value);
+            if(check)
+                break;
+            else System.out.println("Invalid Entry. Use the format mm/dd/yyyy");
+        }
+        return value;
     }
 }

@@ -21,7 +21,7 @@ public class AddMember {
         String firstName = Console.readString("First Name: ");
         String lastName = Console.readString("Last Name: ");
         String email = Console.readString("Email Address: ");
-        String startDate =  Console.readString("Start Date (MM/DD/YYYY): ");
+        String startDate =  Console.readStringDate("Start Date (MM/DD/YYYY): ");
 
         Address address = getAddress();
 

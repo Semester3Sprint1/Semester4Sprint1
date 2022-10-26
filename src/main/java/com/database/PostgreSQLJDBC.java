@@ -28,10 +28,13 @@ public static void main(String args[]) {
         Class.forName("org.postgresql.Driver");
         c = DriverManager
                 .getConnection("jdbc:postgresql://golf-database.cjuqnyg23emc.us-east-1.rds.amazonaws.com:5432/golf",
+
                         "alex", "password");
+
 
         c.setAutoCommit(false);
         System.out.println("Opened database successfully");
+
 
         stmt = c.createStatement();
         String sql = "INSERT INTO public.address(city, province, postal, street)"
@@ -39,6 +42,7 @@ public static void main(String args[]) {
         stmt.executeUpdate(sql);
 
         stmt.close();
+
         c.commit();
         c.close();
     } catch (Exception e) {

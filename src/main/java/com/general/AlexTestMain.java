@@ -7,9 +7,9 @@ import com.menus.HomeMenu;
 
 public class AlexTestMain {
     public static void main(String[] args) {
-        //System.out.println(AddMember.choosePlanType());
-        //Select selector = new Select();
-        //selector.selectTest();
+        // Loads the members from the database
+        AddMember.loadMembers();
+
         HomeMenu.show();
     }
 }

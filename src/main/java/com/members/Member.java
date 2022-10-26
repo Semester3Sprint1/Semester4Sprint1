@@ -5,13 +5,19 @@ import com.members.membership.Membership;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.Date;
 
 public class Member extends Person{
-    private  final int memberID;
-    private  Date startDate;
+    private int memberID;
+    private Date startDate;
     private Membership membership;
 
+    public Member(String firstName, String lastName, Address address, String email, String startDate, Membership membership) {
+        super(firstName, lastName, address, email);
+        setStartDate(startDate);
+        setMembership(membership);
+    }
 
     public Member(String firstName, String lastName, Address address, String email, int memberID, String startDate, Membership membership) {
         super(firstName, lastName, address, email);
@@ -31,13 +37,19 @@ public class Member extends Person{
         return memberID;
     }
 
-
+    public void setMemberID(int id){
+        this.memberID = id;
+    }
 
     public String getStartDate() {
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
         String startDateString = df.format(this.startDate);
 
         return startDateString;
+    }
+
+    public Instant getStartDateAsDate(){
+        return startDate.toInstant();
     }
 
     public Membership getMembership() {

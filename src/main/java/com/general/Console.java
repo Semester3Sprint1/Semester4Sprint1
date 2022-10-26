@@ -105,7 +105,7 @@ public class Console {
         DateValidator validator = new DateCheck("MM/dd/yyyy");
         while(true){
             System.out.print(prompt);
-            value = input.next().trim();
+            value = input.nextLine().trim();
            check =  validator.isValid(value);
             if(check)
                 break;

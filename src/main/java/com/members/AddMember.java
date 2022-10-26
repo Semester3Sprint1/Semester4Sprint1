@@ -1,17 +1,23 @@
 package com.members;
 
+import com.database.App;
 import com.general.Console;
 import com.members.membership.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class AddMember {
     private static HashMap<Integer, Member> members = new HashMap<>();
 
-    public static Member createMember(){
-        // Perhaps we should change this to an auto-generated value?
-        int memberID = (int) Console.readNumber("Enter member ID: ", 0);
+    public static void loadMembers(){
+        App app = new App();
+        members = app.getMembers();
 
+        new SearchForMember(members);
+    }
+
+    public static Member createMember(){
         // Membership Type
         Membership memType = choosePlanType();
         Console.nextLine();
@@ -24,7 +30,13 @@ public class AddMember {
 
         Address address = getAddress();
 
-        Member member = new Member(firstName, lastName, address, email, memberID, startDate, memType);
+        Member member = new Member(firstName, lastName, address, email, startDate, memType);
+
+
+        App app = new App();
+        int newID = app.addMemberToDB(member);
+
+        member.setMemberID(newID);
 
         members.put(member.getMemberID(), member);
 

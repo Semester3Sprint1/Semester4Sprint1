@@ -1,5 +1,7 @@
 package com.members.membership;
 
+import com.general.Console;
+
 public class SpecialOffer extends Membership {
     private final int DURATION_IN_DAYS;
     private final double DISCOUNT_RATE;
@@ -7,7 +9,7 @@ public class SpecialOffer extends Membership {
 
     public SpecialOffer() {
         this.DURATION_IN_DAYS = 60;
-        this.DISCOUNT_RATE = 0.5;
+        this.DISCOUNT_RATE = (Console.readNumber("Enter the discount provided by this membership: (##) ", 0, 100) / 100);
     }
 
     public SpecialOffer(int DURATION_IN_DAYS, double DISCOUNT_RATE) {

@@ -1,6 +1,7 @@
 package com.members;
 
 import com.database.App;
+import com.database.InsertMember;
 import com.general.Console;
 import com.members.membership.*;
 
@@ -20,12 +21,14 @@ public class AddMember {
     public static Member createMember(){
         // Membership Type
         Membership memType = choosePlanType();
-        Console.nextLine();
+        //Console.nextLine();
 
         // Member Info
-        String firstName = Console.readString("First Name: ");
-        String lastName = Console.readString("Last Name: ");
-        String email = Console.readString("Email Address: ");
+        String firstName = Console.readString("First Name: ", 1, 32);
+        String lastName = Console.readString("Last Name: ", 1, 32);
+        String email = Console.readString("Email Address: ", 1, 32);
+
+        //Console.nextLine();
         String startDate =  Console.readStringDate("Start Date (MM/DD/YYYY): ");
 
         Address address = getAddress();
@@ -33,8 +36,8 @@ public class AddMember {
         Member member = new Member(firstName, lastName, address, email, startDate, memType);
 
 
-        App app = new App();
-        int newID = app.addMemberToDB(member);
+        InsertMember insert = new InsertMember();
+        int newID = insert.addMemberToDB(member);
 
         member.setMemberID(newID);
 
@@ -45,10 +48,24 @@ public class AddMember {
         return member;
     }
 
+    public static Address getAddress(){
+        Console.nextLine();
+
+        // Address Info
+        String streetAddress = Console.readLine("Street Address: ", 1, 32);
+        String city = Console.readLine("City: ", 1, 32);
+        String province = Console.readLine("Province: ", 1, 32);
+        String postalCode = Console.readLine("Postal Code: ", 1, 32);
+
+        Address address = new Address(streetAddress, city, postalCode, province, "Canada");
+        return address;
+    }
+
+    // These two functions could be useful for testing
     public static Member createDefaultMember(){
 
         // Perhaps we should change this to an auto-generated value?
-        int memberID = (int) Console.readNumber("Enter member ID: ", 0);
+        int memberID = 1;
 
         // Membership Type
         Membership memType = choosePlanType();
@@ -69,17 +86,6 @@ public class AddMember {
         new SearchForMember(members);
 
         return member;
-    }
-
-    public static Address getAddress(){
-        // Address Info
-        String streetAddress = Console.readLine("Street Address: ");
-        String city = Console.readLine("City: ");
-        String province = Console.readLine("Province: ");
-        String postalCode = Console.readLine("Postal Code: ");
-
-        Address address = new Address(streetAddress, city, postalCode, province, "Canada");
-        return address;
     }
 
     public static Address getDefaultAddress(){

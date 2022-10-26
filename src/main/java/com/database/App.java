@@ -9,16 +9,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class App {
-    private final String url = "jdbc:postgresql://golf-database.cjuqnyg23emc.us-east-1.rds.amazonaws.com:5432/golf";
-    private final String user = "alex";
-    private final String password = "password";
+    private static final String url = "jdbc:postgresql://golf-database.cjuqnyg23emc.us-east-1.rds.amazonaws.com:5432/golf";
+    private static final String user = "alex";
+    private static final String password = "password";
 
     /**
      * Connect to the PostgreSQL database
      *
      * @return a Connection object
      */
-    public Connection connect() {
+    public static Connection connect() {
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url, user, password);
@@ -49,31 +49,6 @@ public class App {
         }
         return result;
     }
-
-//    /**
-//     * Call the get_film stored function
-//     * @param pattern
-//     * @param addressId
-//     */
-//    public void getFilms(String townName, int addressId) {
-//
-//        String SQL = "SELECT * FROM address (?, ?)";
-//        try (Connection conn = this.connect();
-//             PreparedStatement pstmt = conn.prepareStatement(SQL)) {
-//
-//            pstmt.setString(2, townName);
-//            pstmt.setInt(1, addressId);
-//            ResultSet rs = pstmt.executeQuery();
-//
-//            while (rs.next()) {
-//                System.out.println(String.format("%d %s",
-//                        rs.getInt("address_id"),
-//                        rs.getString("city")));
-//            }
-//        } catch (SQLException e) {
-//            System.out.println(e.getMessage());
-//        }
-//    }
 
     public ArrayList<Address> getAddresses() {
         ArrayList<Address> addressList = new ArrayList<>();
@@ -115,7 +90,7 @@ public class App {
 
             while (rs.next()) {
                 Address address = new Address(rs.getString("street"), rs.getString("city"), rs.getString("postal"), rs.getString("province"), "Canada");
-                Membership membership = getMembership(rs.getString("plan_name"), rs.getInt("plan_id"), rs.getInt("duration"), rs.getInt("discount_rate"));
+                Membership membership = getMembership(rs.getString("plan_name"), rs.getInt("plan_id"), rs.getInt("duration"), rs.getDouble("discount_rate"));
 
                 Member member = new Member(rs.getString("first_name"), rs.getString("last_name"), address, rs.getString("email_address"), rs.getInt("member_id"), rs.getDate("start_date"), membership);
 
@@ -146,155 +121,6 @@ public class App {
             System.out.println(e.getMessage());
         }
         return family;
-    }
-
-    public int addMembershipPlan(Membership planToAdd){
-        // Add Membership
-        String SQL = """
-                INSERT INTO public.member_plans(
-                \tduration, cost, discount_rate, type_id)
-                \tVALUES (?, ?, ?, ?);""";
-
-        int id = 0;
-
-        try (Connection conn = connect();
-             PreparedStatement pstmt = conn.prepareStatement(SQL,
-                     Statement.RETURN_GENERATED_KEYS)) {
-
-            pstmt.setInt(1, planToAdd.getDURATION_IN_DAYS());
-            pstmt.setDouble(2, planToAdd.getCost());
-            pstmt.setDouble(3, planToAdd.getDISCOUNT_RATE());
-            pstmt.setInt(4, planToAdd.getTypeCode());
-
-            int affectedRows = pstmt.executeUpdate();
-            // check the affected rows
-            if (affectedRows > 0) {
-                // get the ID back
-                try (ResultSet rs = pstmt.getGeneratedKeys()) {
-                    if (rs.next()) {
-                        id = rs.getInt(1);
-                    }
-                } catch (SQLException ex) {
-                    System.out.println(ex.getMessage());
-                }
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-
-        return id;
-    }
-
-    public int addMemberToDBForReal(Member newMember, int plan_id){
-        // Add Membership
-        String SQL = """
-                INSERT INTO public.member(
-                	first_name, last_name, email_address, start_date, plan_id)
-                	VALUES (?, ?, ?, ?, ?);""";
-
-        int id = 0;
-
-        try (Connection conn = connect();
-             PreparedStatement pstmt = conn.prepareStatement(SQL,
-                     Statement.RETURN_GENERATED_KEYS)) {
-
-            pstmt.setString(1, newMember.getFirstName());
-            pstmt.setString(2, newMember.getLastName());
-            pstmt.setString(3, newMember.getEmail());
-            pstmt.setTimestamp(4, Timestamp.from(newMember.getStartDateAsDate()));
-            pstmt.setInt(5, plan_id);
-
-            int affectedRows = pstmt.executeUpdate();
-            // check the affected rows
-            if (affectedRows > 0) {
-                // get the ID back
-                try (ResultSet rs = pstmt.getGeneratedKeys()) {
-                    if (rs.next()) {
-                        id = rs.getInt(1);
-                    }
-                } catch (SQLException ex) {
-                    System.out.println(ex.getMessage());
-                }
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-
-        return id;
-    }
-
-    public int addAddressToDB(Address newAddress){
-        String SQL = """
-                INSERT INTO public.address(
-                \tcity, province, postal, street)
-                \tVALUES (?, ?, ?, ?);""";
-
-        int id = 0;
-
-        try (Connection conn = connect();
-             PreparedStatement pstmt = conn.prepareStatement(SQL,
-                     Statement.RETURN_GENERATED_KEYS)) {
-
-            pstmt.setString(1, newAddress.getCity());
-            pstmt.setString(2, newAddress.getProvince());
-            pstmt.setString(3, newAddress.getPostalCode());
-            pstmt.setString(4, newAddress.getStreetAddress());
-
-            int affectedRows = pstmt.executeUpdate();
-            // check the affected rows
-            if (affectedRows > 0) {
-                // get the ID back
-                try (ResultSet rs = pstmt.getGeneratedKeys()) {
-                    if (rs.next()) {
-                        id = rs.getInt(1);
-                    }
-                } catch (SQLException ex) {
-                    System.out.println(ex.getMessage());
-                }
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-
-        return id;
-    }
-
-    public void joinMemberAndAddress(int memberID, int addressID){
-        String SQL = """
-                INSERT INTO public.address_member(
-                \taddress_id, member_id)
-                \tVALUES (?, ?);""";
-
-        try (Connection conn = connect();
-             PreparedStatement pstmt = conn.prepareStatement(SQL,
-                     Statement.RETURN_GENERATED_KEYS)) {
-
-            pstmt.setInt(1, addressID);
-            pstmt.setInt(2, memberID);
-
-            int affectedRows = pstmt.executeUpdate();
-
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
-
-    public int addMemberToDB(Member newMember){
-        Address addressToAdd = newMember.getAddress();
-        Membership planToAdd = newMember.getMembership();
-
-        int plan_id = addMembershipPlan(planToAdd);
-
-        // Add Member
-        int new_member_id = addMemberToDBForReal(newMember, plan_id);
-
-        // Add Address
-        int new_address_id = addAddressToDB(addressToAdd);
-
-        // Join Member and Address
-        joinMemberAndAddress(new_member_id, new_address_id);
-
-        return new_member_id;
     }
 
 

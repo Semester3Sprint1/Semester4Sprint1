@@ -1,8 +1,18 @@
 package com.members.membership;
 
 public class Normal extends Membership {
-    private final int DURATION_IN_DAYS = 365;
-    private final double DISCOUNT_RATE = 0;
+    private final int DURATION_IN_DAYS;
+    private final double DISCOUNT_RATE;
+
+    public Normal() {
+        this.DURATION_IN_DAYS = 365;
+        this.DISCOUNT_RATE = 0;
+    }
+
+    public Normal(int DURATION_IN_DAYS, double discount){
+        this.DURATION_IN_DAYS = DURATION_IN_DAYS;
+        this.DISCOUNT_RATE = discount;
+    }
 
     @Override
     public double getCost() {

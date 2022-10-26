@@ -21,8 +21,8 @@ public class TestMain {
                 "A1A5A5", "NL", "Canada");
         Address address2 = new Address("55 second street", "Paradise",
                 "A1A5A7", "NL", "Canada");
-        Member member1 = new Member("Mike", "Wadden", address1, "mike@email.com", "M2","03/23/2022", m1  );
-        Member member2 = new Member("Alex", "Ridgeley", address1, "alex@email.com", "A2","05/15/2022", m1  );
+        Member member1 = new Member("Mike", "Wadden", address1, "mike@email.com", 2,"03/23/2022", m1  );
+        Member member2 = new Member("Alex", "Ridgeley", address1, "alex@email.com", 3,"05/15/2022", m1  );
         System.out.println(member1);
         System.out.println(member2);
         CompetitiveTournament t1 = new CompetitiveTournament("Alex Open", "04/22/2022","04/23/2022", "The Wilds", 500, 10_000 );

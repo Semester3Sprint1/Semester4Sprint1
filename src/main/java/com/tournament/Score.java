@@ -5,7 +5,6 @@ import com.members.Member;
 import java.util.ArrayList;
 
 public class Score {
-
     public static ArrayList<Score> scoreList = new ArrayList<>();
     private int score;
     private Member member;
@@ -55,9 +54,7 @@ public class Score {
     }
 
     @Override
-    public  String toString(){
+    public String toString(){
         return(member.getName() +" "+ score);
-
-
     }
 }

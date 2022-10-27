@@ -13,12 +13,13 @@ public class Main {
         System.out.println("Loading database...");
         // Loads the members from the database
         AddMember.loadMembers();
+
         // loads the tournaments from the database;
         CreateTournament.loadTournament();
         GetMembersByTournament load = new GetMembersByTournament();
         load.getMembersByTournament();
+
         System.out.println("Load completed. Launching program.\n");
-        DisplayScores.displayTournamentDetailsByMember(Score.getScoreList(), 1);
         HomeMenu.show();
     }
 }

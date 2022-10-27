@@ -58,6 +58,19 @@ public class testTournament{
 
     @Test
 
+    public void testTournamentIDMethods(){
+        Tournament tournament = new Tournament( 1,"Mike Open", new Date("03/23/2022"), new Date(), "The House",500);
+        assertEquals(1, tournament.getTournamentID());
+        tournament.setTournamentID(2);
+        assertNotEquals(1, tournament.getTournamentID());
+        Tournament tournament2 = new CharityTournament( 1,"Mike Open", new Date("03/23/2022"), new Date(), "The House",500, "Mike Foundation");
+        Tournament tournament3 = new CompetitiveTournament( 1,"Mike Open", new Date("03/23/2022"), new Date(), "The House",500, 5000);
+         assertEquals(1, tournament2.getTournamentID());
+         assertEquals(1, tournament3.getTournamentID());
+    }
+
+    @Test
+
     public void setStartDateException() {
         Tournament date = new Tournament();
         assertThrows(RuntimeException.class, () -> {
@@ -90,11 +103,6 @@ public class testTournament{
          t1.deleteMember(member);
         assertEquals(1,t1.getMemberList().size());
         assertEquals("Mike Wadden", t1.getMemberList().get(0).getName());
-
-
-
-
-
 
 
     }

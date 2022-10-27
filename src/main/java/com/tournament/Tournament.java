@@ -170,8 +170,7 @@ public class Tournament {
                 .sorted(Comparator.comparing(Member::getName))
                 .forEach(m-> System.out.println(m.getName()));
     }
-
-
+    // designed for Lambda filtering
     public int tournamentDateCheck(){
         DateValidator validator = new DateCheck(this.startDate, new Date());
         int value = validator.dateCheck();

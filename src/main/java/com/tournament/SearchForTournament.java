@@ -15,4 +15,6 @@ public class SearchForTournament {
                 .filter(m-> m.getName().toUpperCase().equals(name.toUpperCase())).findAny().orElse(null);
         return tournament;
     }
+
+
 }

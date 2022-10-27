@@ -11,7 +11,7 @@ public class RemoveMemberFromTournamentMenu {
     public static void show(){
         // finds the tournament by its name
         while(true){
-            Tournament tournamentToUse = SearchForTournament.findTournament(Console.readLine("Enter Tournament Name : ", 10, 200), SearchForTournament.tList);
+            Tournament tournamentToUse = SearchForTournament.findTournament(Console.readLine("Enter Tournament Name : ", 3, 200), SearchForTournament.tList);
             Member memberToDelete = SearchForMember.findMember((int) Console.readNumber("Enter member ID: ", 0));
             Console.nextLine();
             // find member to remove by ID

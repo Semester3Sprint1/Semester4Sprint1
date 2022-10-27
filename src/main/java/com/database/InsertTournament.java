@@ -11,7 +11,7 @@ public class InsertTournament extends Connection{
 
     private int index;
 
-    public void addTournamentToDB(Tournament newTournament) {
+    public int addTournamentToDB(Tournament newTournament) {
 
         String SQL = """
                 INSERT INTO public.tournament(
@@ -50,7 +50,7 @@ public class InsertTournament extends Connection{
             System.out.println(ex.getMessage());
         }
 
-
+        return index;
     }
 
     public void addCharityTypeToDB(CharityTournament newTournament) {
@@ -66,7 +66,7 @@ public class InsertTournament extends Connection{
                      Statement.RETURN_GENERATED_KEYS)) {
 
             pstmt.setInt(1, 2);
-            pstmt.setInt(2, this.index);
+            pstmt.setInt(2, newTournament.getTournamentID());
             pstmt.setString(3, newTournament.getCharityName());
             pstmt.setDouble(4, newTournament.getMoneyRaised());
 
@@ -92,7 +92,7 @@ public class InsertTournament extends Connection{
                      Statement.RETURN_GENERATED_KEYS)) {
 
             pstmt.setInt(1, 1);
-            pstmt.setInt(2, this.index);
+            pstmt.setInt(2, newTournament.getTournamentID());
             pstmt.setDouble(3, newTournament.getCashPrize());
 
             int affectedRows = pstmt.executeUpdate();

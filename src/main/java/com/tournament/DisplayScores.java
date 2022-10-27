@@ -5,6 +5,7 @@ import com.general.DateValidator;
 
 import java.sql.SQLOutput;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.function.Predicate;
 
 public class DisplayScores {
@@ -14,6 +15,7 @@ public class DisplayScores {
         System.out.println("Member Name:" + "       " + "Score" );
         System.out.println("------------" + "       " + "-----");
         scoreList.stream().filter(m->m.getTournament().getName().equals(check.getName()))
+                .sorted(Comparator.comparing(Score::getScore))
                 .forEach(System.out::println);
     }
 
@@ -24,6 +26,7 @@ public class DisplayScores {
         System.out.println("------------" + "       " + "-----");
         ArrayList<Score> scoreList = Score.getScoreList();
         scoreList.stream().filter(m->m.getTournament().getName().equals(check.getName()))
+                .sorted(Comparator.comparing(Score::getScore))
                 .forEach(System.out::println);
     }
 

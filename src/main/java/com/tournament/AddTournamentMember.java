@@ -1,12 +1,9 @@
 package com.tournament;
 
-import com.database.RegisterMember;
+import com.database.TournamentDetail;
 import com.general.Console;
 import com.members.Member;
 import com.members.SearchForMember;
-import com.tournament.Score;
-import com.tournament.SearchForTournament;
-import com.tournament.Tournament;
 
 public class AddTournamentMember {
 
@@ -18,7 +15,7 @@ public class AddTournamentMember {
 
             // find member to add by ID
             if(memberToAdd != null && tournamentToUse != null){
-                RegisterMember register = new RegisterMember();
+                TournamentDetail register = new TournamentDetail();
                 register.joinMemberAndTournament(memberToAdd.getMemberID(), tournamentToUse.getTournamentID());
 
                 tournamentToUse.addMember(memberToAdd);

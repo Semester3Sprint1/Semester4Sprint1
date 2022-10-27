@@ -19,7 +19,6 @@ public class Main {
         GetMembersByTournament load = new GetMembersByTournament();
         load.getMembersByTournament();
         System.out.println("Load completed. Launching program.\n");
-//        DisplayScores.displayScores("PG Open");
         HomeMenu.show();
     }
 }

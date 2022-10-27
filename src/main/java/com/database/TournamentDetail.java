@@ -4,7 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class RegisterMember extends Connection{
+public class TournamentDetail extends Connection{
 
     public void joinMemberAndTournament(int memberID, int tournament_id){
         String SQL = """
@@ -44,4 +44,29 @@ public class RegisterMember extends Connection{
             System.out.println(ex.getMessage());
         }
     }
-}
+
+    public void updateScore(int memberID, int tournamentID, int score){
+
+        String SQL = """
+                UPDATE public.member_tournament
+                    SET  score=?
+                    WHERE member_id = ? AND tournament_id = ?;
+                """;
+
+        try (java.sql.Connection conn = connect();
+             PreparedStatement pstmt = conn.prepareStatement(SQL,
+                     Statement.RETURN_GENERATED_KEYS)) {
+            pstmt.setInt(1, score);
+            pstmt.setInt(2, memberID);
+            pstmt.setInt(3, tournamentID);
+
+            int affectedRows = pstmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    }
+
+

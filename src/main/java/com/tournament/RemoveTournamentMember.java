@@ -1,6 +1,6 @@
 package com.tournament;
 
-import com.database.RegisterMember;
+import com.database.TournamentDetail;
 import com.general.Console;
 import com.members.Member;
 import com.members.SearchForMember;
@@ -16,7 +16,7 @@ public class RemoveTournamentMember {
 
             // find member to remove by ID
             if (memberToDelete != null && tournamentToUse != null){
-                RegisterMember register = new RegisterMember();
+                TournamentDetail register = new TournamentDetail();
                 register.removeMemberFromTournament(memberToDelete.getMemberID(), tournamentToUse.getTournamentID());
 
                 tournamentToUse.deleteMember(memberToDelete);

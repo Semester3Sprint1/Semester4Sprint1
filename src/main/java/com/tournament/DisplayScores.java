@@ -8,22 +8,22 @@ import java.util.ArrayList;
 import java.util.function.Predicate;
 
 public class DisplayScores {
-    public static void displayScores(ArrayList<Score> scoreList, String tournament){
+    public static void displayScores(ArrayList<Score> scoreList, Tournament check ){
         System.out.println("Tournament Standings");
         System.out.println("--------------------");
         System.out.println("Member Name:" + "       " + "Score" );
         System.out.println("------------" + "       " + "-----");
-        scoreList.stream().filter(m->m.getTournament().getName().equals(tournament))
+        scoreList.stream().filter(m->m.getTournament().getName().equals(check.getName()))
                 .forEach(System.out::println);
     }
 
-    public static void displayScores(String tournament){
+    public static void displayScores(Tournament check ){
         System.out.println("Tournament Standings");
         System.out.println("--------------------");
         System.out.println("Member Name:" + "       " + "Score" );
         System.out.println("------------" + "       " + "-----");
         ArrayList<Score> scoreList = Score.getScoreList();
-        scoreList.stream().filter(m->m.getTournament().getName().equals(tournament))
+        scoreList.stream().filter(m->m.getTournament().getName().equals(check.getName()))
                 .forEach(System.out::println);
     }
 

@@ -3,20 +3,15 @@ package com.tournament;
 import com.members.Address;
 import com.members.Member;
 import com.members.membership.Membership;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.function.Predicate;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class testTournament{
@@ -55,9 +50,30 @@ public class testTournament{
         assertTrue(t2.toString().contains("$5,000"));
         t2.setCashPrize(10_000);
         assertTrue(t2.toString().contains("$10,000"));
+        assertInstanceOf(Date.class, t1.getStartDateObject());
+        assertInstanceOf(Date.class, t1.getEndDateObject());
 
 
     }
+
+    @Test
+
+    public void setStartDateException() {
+        Tournament date = new Tournament();
+        assertThrows(RuntimeException.class, () -> {
+            date.setStartDate("13,40,2022");
+        });
+
+    }
+        @Test
+        public void setEndDateException() {
+            Tournament date = new Tournament();
+            assertThrows(RuntimeException.class, () -> {
+                date.setEndDate("13,40,2022");
+            });
+        }
+
+
 
     @Test
     public void testAddMemberToTournament(){

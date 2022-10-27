@@ -1,5 +1,6 @@
 package com.menus;
 
+import com.database.TournamentDetail;
 import com.general.Console;
 import com.members.Member;
 import com.members.SearchForMember;
@@ -21,7 +22,9 @@ public class ScoreMenu {
             Score scoreToUpdate = FindScore.findScore(memberToAdd, tournamentToUse, Score.getScoreList());
             if(memberToAdd != null && tournamentToUse != null && scoreToUpdate != null){
                 scoreToUpdate.setScore(score);
-                System.out.println(memberToAdd.getMemberID() + "score of " + score + " Successfully added to " + tournamentToUse.getName());
+                TournamentDetail update = new TournamentDetail();
+                update.updateScore(memberToAdd.getMemberID(), tournamentToUse.getTournamentID(), score);
+                System.out.println( memberToAdd.getName() + " score of " + score + " Successfully added to " + tournamentToUse.getName());
                 break;
             }else{
                 System.out.println("Error Invalid Entry, Please Try again");

@@ -22,7 +22,7 @@ public class TournamentMenu {
                     2. Register Member 
                     3. Remove Member
                     4. Display Participating Member by Tournament 
-                    5. Enter Member Tournament Scores
+                    5. Enter Member Tournament Score
                     6. View All Tournaments
                     7. View Tournament Results
                     8. Return to Main Menu

@@ -39,7 +39,8 @@ public class GetMembersByTournament extends Connection{
                 Tournament tournamentToUse = SearchForTournament.findTournament(tournamentName, SearchForTournament.tList);
                 Member memberToAdd = SearchForMember.findMember(member_id);
                 tournamentToUse.addMember(memberToAdd);
-                Score newScore = new Score(score,memberToAdd, tournamentToUse);
+
+                Score newScore = new Score(score, memberToAdd, tournamentToUse);
                 Score.getScoreList().add(newScore);
 
             }

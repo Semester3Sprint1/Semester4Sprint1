@@ -16,5 +16,11 @@ public class SearchForTournament {
         return tournament;
     }
 
+    public static Tournament findTournament(int tournament_ID){
+        Tournament tournament = tList.stream()
+                .filter(m-> m.getTournamentID() == tournament_ID).findAny().orElse(null);
+        return tournament;
+    }
+
 
 }

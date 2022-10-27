@@ -16,6 +16,11 @@ public class Score {
         this.tournament = tournament;
     }
 
+    public Score(Member member, Tournament tournament) {
+        this.score = 0;
+        this.member = member;
+        this.tournament = tournament;
+    }
 
     public int getScore() {
         return score;
@@ -51,6 +56,10 @@ public class Score {
 
     public void addScore(Score score){
         getScoreList().add(score);
+    }
+
+    public void removeScore(Score score){
+        getScoreList().remove(score);
     }
 
     @Override

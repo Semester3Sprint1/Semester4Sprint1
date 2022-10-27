@@ -1,6 +1,7 @@
 package com.tournament;
 
 import com.database.GetMember;
+import com.database.GetMembersByTournament;
 import com.database.GetTournament;
 import com.database.InsertTournament;
 import com.general.Console;
@@ -15,6 +16,18 @@ public class CreateTournament  {
     public static void loadTournament(){
         GetTournament connection = new GetTournament();
         SearchForTournament.tList = connection.getTournament();
+
+        // Fetch tournament member list
+        loadMemberByTournament();
+
+
+    }
+
+    public static void loadMemberByTournament(){
+        GetMembersByTournament connection = new GetMembersByTournament();
+        SearchForTournament.tList.forEach(tournament -> {
+            tournament.setAllMembers(connection.getMembersByTournament(tournament));
+        });
     }
 
 

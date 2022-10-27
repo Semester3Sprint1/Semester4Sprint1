@@ -12,6 +12,7 @@ import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Tournament {
    private String name;
@@ -26,6 +27,7 @@ public class Tournament {
 
     // this list stores Members by Tournament
    private ArrayList<Member> memberList = new ArrayList<>();
+   private ArrayList<Score> allMembers = new ArrayList<>();
 
     // Constructors
 
@@ -158,8 +160,21 @@ public class Tournament {
         memberList.remove(member);
     }
 
+    public void setAllMembers(ArrayList<Score> members){
+        this.allMembers = members;
+    }
+
+    public ArrayList<Score> getAllMembers() {
+        return allMembers;
+    }
 
     // Display Tournament Member List
+
+    public void displayMembers(){
+        System.out.println("Member" + "         " + "Score");
+        System.out.println("--------------------");
+        getAllMembers().forEach(System.out::println);
+    }
 
     public void displayTournamentParticipants(){
         System.out.println(getName() + " Member Participants");

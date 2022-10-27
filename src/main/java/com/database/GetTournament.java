@@ -29,6 +29,9 @@ public class GetTournament extends Connection{
 
             ResultSet rs = pstmt.executeQuery();
 
+            // After the tournament objects  created, run another sql statement that filters
+            // on that one tournament and add each member
+
             while (rs.next()) {
                 // need to sort by Tournament Type to decide which constructor to use;
                 int type = rs.getInt("tourney_type_id");

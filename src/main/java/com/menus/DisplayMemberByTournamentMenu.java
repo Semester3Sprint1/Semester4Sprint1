@@ -12,7 +12,7 @@ public class DisplayMemberByTournamentMenu {
             Tournament tournamentToUse = SearchForTournament.findTournament(Console.readLine("Enter Tournament Name : ", 10, 200), SearchForTournament.tList);
             System.out.println();
             if(tournamentToUse != null){
-                tournamentToUse.displayTournamentParticipants();
+                tournamentToUse.displayMembers();
                 break;
             }else{
                 System.out.println("Error Invalid Tournament Name, Please Try again");

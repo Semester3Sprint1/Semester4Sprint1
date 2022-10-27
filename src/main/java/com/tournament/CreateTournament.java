@@ -35,13 +35,19 @@ public class CreateTournament  {
         if(selection.toUpperCase().equals("C")){
              String charityName = Console.readLine("Enter Charity Name: ", 3, 150);
              CharityTournament newTournament = new CharityTournament(name, startDate, endDate, location, entryFee, charityName);
-             insert.addTournamentToDB(newTournament);
+
+             int newID = insert.addTournamentToDB(newTournament);
+             newTournament.setTournamentID(newID);
+
              insert.addCharityTypeToDB(newTournament);
              SearchForTournament.tList.add(newTournament);
         }else{
              double cashPrize = Console.readNumber("Enter Cash Prize: ", 1000, 100_000 );
              CompetitiveTournament newTournament = new CompetitiveTournament(name, startDate, endDate, location, entryFee, cashPrize);
-             insert.addTournamentToDB(newTournament);
+
+             int newID = insert.addTournamentToDB(newTournament);
+             newTournament.setTournamentID(newID);
+
              insert.addCompetitiveTypeToDB(newTournament);
              SearchForTournament.tList.add(newTournament);
 

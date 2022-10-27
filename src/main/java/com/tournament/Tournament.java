@@ -15,15 +15,14 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class Tournament {
-   private String name;
+    private int tournamentID;
+    private String name;
     private Date startDate;
-    private  Date endDate;
-    private  String location;
-    private  double entryFee;
+    private Date endDate;
+    private String location;
+    private double entryFee;
 
-    public static int  tournamentCount = 0;
-
-
+   public static int  tournamentCount = 0;
 
     // this list stores Members by Tournament
    private ArrayList<Member> memberList = new ArrayList<>();
@@ -39,7 +38,6 @@ public class Tournament {
 
     }
     public Tournament(String name, String startDate,String  endDate, String location, double entryFee, ArrayList<Member> memberList) {
-
         setName(name);
         setStartDate(startDate);
         setEndDate(endDate);
@@ -50,23 +48,20 @@ public class Tournament {
     }
 
     public Tournament(String name, String startDate, String endDate, String location, double entryFee){
-
         setName(name);
         setStartDate(startDate);
         setEndDate(endDate);
         setLocation(location);
         setEntryFee(entryFee);
-
-
     }
 
-    public Tournament(String name, Date startDate, Date endDate, String location, double entryFee){
+    public Tournament(int tournamentID, String name, Date startDate, Date endDate, String location, double entryFee){
+        setTournamentID(tournamentID);
         setName(name);
         this.startDate = startDate;
         this.endDate = endDate;
         setLocation(location);
         setEntryFee(entryFee);
-
     }
 
 
@@ -149,6 +144,14 @@ public class Tournament {
         this.name = name;
     }
 
+    public int getTournamentID() {
+        return tournamentID;
+    }
+
+    public void setTournamentID(int tournamentID) {
+        this.tournamentID = tournamentID;
+    }
+
     // Adds Member to Tournament
 
     public void addMember(Member member){
@@ -158,7 +161,6 @@ public class Tournament {
     public void deleteMember(Member member){
         memberList.remove(member);
     }
-
 
     // Display Tournament Member List
 
@@ -171,7 +173,6 @@ public class Tournament {
 
 
     public int tournamentDateCheck(){
-
         DateValidator validator = new DateCheck(this.startDate, new Date());
         int value = validator.dateCheck();
         return value;

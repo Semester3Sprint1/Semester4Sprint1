@@ -13,8 +13,8 @@ public class CharityTournament  extends Tournament{
 
     //Constructors
 
-    public CharityTournament(String name, Date startDate, Date endDate, String location, double entryFee, String charityName) {
-        super(name, startDate, endDate, location, entryFee);
+    public CharityTournament(int tournamentID, String name, Date startDate, Date endDate, String location, double entryFee, String charityName) {
+        super(tournamentID, name, startDate, endDate, location, entryFee);
         this.moneyRaised = moneyRaised;
         this.charityName = charityName;
         tournamentCount++;

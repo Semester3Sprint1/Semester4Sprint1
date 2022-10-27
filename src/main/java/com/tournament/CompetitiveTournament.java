@@ -10,12 +10,9 @@ public class CompetitiveTournament extends Tournament{
 
     private double cashPrize;
 
-
     //Constructors
-
-
-    public CompetitiveTournament(String name, Date startDate, Date endDate, String location, double entryFee, double cashPrize) {
-        super(name, startDate, endDate, location, entryFee);
+    public CompetitiveTournament(int tournamentID, String name, Date startDate, Date endDate, String location, double entryFee, double cashPrize) {
+        super(tournamentID, name, startDate, endDate, location, entryFee);
         this.cashPrize = cashPrize;
         tournamentCount++;
     }

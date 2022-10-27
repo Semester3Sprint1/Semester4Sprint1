@@ -33,14 +33,14 @@ public class GetTournament extends Connection{
                 // need to sort by Tournament Type to decide which constructor to use;
                 int type = rs.getInt("tourney_type_id");
                 if(type == 1){
-                   CharityTournament tournament = new CharityTournament(rs.getString("name"),
+                   CharityTournament tournament = new CharityTournament(rs.getInt("tournament_id"), rs.getString("name"),
                             rs.getDate("start_date"), rs.getDate("end_date"),
                                     rs.getString("location"), rs.getDouble("entry_fee"),
                                             rs.getString("charitity_name"));
                     tournament.setMoneyRaised(rs.getDouble("money_raised"));
                     tournamentList.add(tournament);
                 } else if (type == 2) {
-                    CompetitiveTournament tournament1 = new CompetitiveTournament(rs.getString("name"), rs.getDate("start_date"),
+                    CompetitiveTournament tournament1 = new CompetitiveTournament(rs.getInt("tournament_id"), rs.getString("name"), rs.getDate("start_date"),
                             rs.getDate("end_date"), rs.getString("location"),
                             rs.getDouble("entry_fee"), rs.getDouble("cash_prize"));
                     tournamentList.add(tournament1);

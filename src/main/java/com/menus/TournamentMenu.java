@@ -1,9 +1,10 @@
 package com.menus;
 
-import com.database.InsertTournament;
 import com.general.Console;
+import com.tournament.AddTournamentMember;
 import com.tournament.CreateTournament;
 import com.tournament.DisplayTournaments;
+import com.tournament.RemoveTournamentMember;
 
 
 public class TournamentMenu {
@@ -31,8 +32,8 @@ public class TournamentMenu {
 
             switch (selection) {
                 case 1 -> CreateTournament.userInput();
-                case 2 -> AddMemberToTournamentMenu.show();
-                case 3 -> RemoveMemberFromTournamentMenu.show();
+                case 2 -> AddTournamentMember.show();
+                case 3 -> RemoveTournamentMember.show();
                 case 4 -> DisplayMemberByTournamentMenu.show();
                 case 5 -> System.out.println("Edit Menu");
                 case 6 -> DisplayTournaments.show();

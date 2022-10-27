@@ -3,6 +3,7 @@ package com.menus;
 import com.database.InsertTournament;
 import com.general.Console;
 import com.tournament.CreateTournament;
+import com.tournament.DisplayFinalStandings;
 import com.tournament.DisplayTournaments;
 
 
@@ -22,10 +23,11 @@ public class TournamentMenu {
                     4. Display Participating Member by Tournament 
                     5. Enter Member Tournament Scores
                     6. View All Tournaments
-                    7. Return to Main Menu
+                    7. View Tournament Results
+                    8. Return to Main Menu
                     """);
 
-            int selection = (int) Console.readNumber("Enter Selection: ", 1, 7);
+            int selection = (int) Console.readNumber("Enter Selection: ", 1, 8);
             Console.nextLine();
             System.out.println();
 
@@ -36,7 +38,8 @@ public class TournamentMenu {
                 case 4 -> DisplayMemberByTournamentMenu.show();
                 case 5 -> ScoreMenu.show();
                 case 6 -> DisplayTournaments.show();
-                case 7 -> {
+                case 7 -> DisplayFinalStandings.show();
+                case 8 -> {
                     System.out.println("Returning to Main Menu");
                     HomeMenu.show();
                 }

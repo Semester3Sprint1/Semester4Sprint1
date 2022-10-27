@@ -15,7 +15,7 @@ public class CharityTournament  extends Tournament{
 
     public CharityTournament(int tournamentID, String name, Date startDate, Date endDate, String location, double entryFee, String charityName) {
         super(tournamentID, name, startDate, endDate, location, entryFee);
-        this.moneyRaised = moneyRaised;
+        this.moneyRaised = 0;
         this.charityName = charityName;
         tournamentCount++;
     }

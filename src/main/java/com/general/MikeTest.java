@@ -17,8 +17,6 @@ public class MikeTest {
         CompetitiveTournament t2 = new CompetitiveTournament("Clovally Classic", "04/25/2022", "04/25/2022", "9 hole course", 1000, 10_000);
         SearchForTournament.tList.add(t1);
         SearchForTournament.tList.add(t2);
-        Tournament foundTournament = SearchForTournament.findTournament("pg open");
-        System.out.println(foundTournament);
         DateValidator  validator = new DateCheck(t1.getStartDateObject(), t1.getEndDateObject());
         int dateCheck = validator.dateCheck();
         System.out.println(dateCheck);

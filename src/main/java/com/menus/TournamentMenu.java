@@ -34,7 +34,7 @@ public class TournamentMenu {
                 case 2 -> AddMemberToTournamentMenu.show();
                 case 3 -> RemoveMemberFromTournamentMenu.show();
                 case 4 -> DisplayMemberByTournamentMenu.show();
-                case 5 -> System.out.println("Edit Menu");
+                case 5 -> ScoreMenu.show();
                 case 6 -> DisplayTournaments.show();
                 case 7 -> {
                     System.out.println("Returning to Main Menu");

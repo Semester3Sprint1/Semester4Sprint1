@@ -5,6 +5,7 @@ import com.general.DateValidator;
 import com.members.Member;
 
 
+import javax.xml.crypto.Data;
 import java.util.Comparator;
 import java.util.Date;
 import java.text.DateFormat;
@@ -166,6 +167,14 @@ public class Tournament {
         memberList.stream()
                 .sorted(Comparator.comparing(Member::getName))
                 .forEach(m-> System.out.println(m.getName()));
+    }
+
+
+    public int tournamentDateCheck(){
+
+        DateValidator validator = new DateCheck(this.startDate, new Date());
+        int value = validator.dateCheck();
+        return value;
     }
 
     // String Output

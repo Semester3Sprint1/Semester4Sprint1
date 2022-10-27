@@ -3,25 +3,19 @@ package com.tournament;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mockito;
-import org.mockito.junit.jupiter.MockitoExtension;
-
 import java.util.ArrayList;
 import java.util.Date;
 
-@ExtendWith(MockitoExtension.class)
 public class SearchForTournamentTest {
      @Test
     public void findTournamentTestObjectReturn(){
-        SearchForTournament mockSearch = Mockito.mock(SearchForTournament.class);
         ArrayList<Tournament> tList = new ArrayList<>();
        Tournament tournament = new Tournament( 1,"Mike Open", new Date("03/23/2022"), new Date(), "The House",500);
         Tournament tournament1 = new Tournament( 2,"Alex Open", new Date("03/23/2022"), new Date(), "The Alex House",1500);
        tList.add(tournament);
        tList.add(tournament1);
 
-//       when(SearchForTournament.findTournament("Mike Open", mockList)).thenReturn(tournament);
+
       // tests Tournament Name version of the find tournament method
        Tournament tournamentFound = SearchForTournament.findTournament("Mike Open", tList);
        Assertions.assertEquals(tournament.getName(), tournamentFound.getName());

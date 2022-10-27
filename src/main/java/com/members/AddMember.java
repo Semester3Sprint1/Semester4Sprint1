@@ -68,8 +68,7 @@ public class AddMember {
         int memberID = 1;
 
         // Membership Type
-        Membership memType = choosePlanType();
-        Console.nextLine();
+        Membership memType = new Normal();
 
         // Member Info
         String firstName = "Alex";

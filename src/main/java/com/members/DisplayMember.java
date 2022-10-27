@@ -1,5 +1,7 @@
 package com.members;
 
+import com.tournament.DisplayScores;
+
 import java.util.HashMap;
 
 public class DisplayMember {
@@ -29,5 +31,6 @@ public class DisplayMember {
             System.out.println("------------");
             System.out.println(member);
             System.out.println();
+            DisplayScores.displayTournamentDetailsByMember(member.getMemberID());
     }}
 }

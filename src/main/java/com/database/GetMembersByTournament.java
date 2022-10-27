@@ -21,8 +21,7 @@ public class GetMembersByTournament extends Connection{
         String SQL = """
                 SELECT   m.first_name || ' ' || m.last_name as member_name, t.name as tournament_name, mt.score, t.start_date, m.member_id from member_tournament mt
                 JOIN member m USING (member_id)
-                JOIN tournament t USING(tournament_id);
-                                
+                JOIN tournament t USING(tournament_id);              
                 """;
 
         try (java.sql.Connection conn = connect();

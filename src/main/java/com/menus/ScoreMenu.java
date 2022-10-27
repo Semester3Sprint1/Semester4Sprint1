@@ -6,6 +6,7 @@ import com.members.SearchForMember;
 import com.tournament.Score;
 import com.tournament.SearchForTournament;
 import com.tournament.Tournament;
+import com.tournament.FindScore;
 
 public class ScoreMenu {
 

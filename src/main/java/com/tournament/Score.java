@@ -55,6 +55,6 @@ public class Score {
 
     @Override
     public String toString(){
-        return(member.getName() +" "+ score);
+        return(member.getName() +"--------" +  score);
     }
 }

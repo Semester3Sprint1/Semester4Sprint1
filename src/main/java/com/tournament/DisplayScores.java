@@ -10,14 +10,18 @@ import java.util.function.Predicate;
 public class DisplayScores {
     public static void displayScores(ArrayList<Score> scoreList, String tournament){
         System.out.println("Tournament Standings");
-        System.out.println("********************");
+        System.out.println("--------------------");
+        System.out.println("Member Name:" + "       " + "Score" );
+        System.out.println("------------" + "       " + "-----");
         scoreList.stream().filter(m->m.getTournament().getName().equals(tournament))
                 .forEach(System.out::println);
     }
 
     public static void displayScores(String tournament){
         System.out.println("Tournament Standings");
-        System.out.println("********************");
+        System.out.println("--------------------");
+        System.out.println("Member Name:" + "       " + "Score" );
+        System.out.println("------------" + "       " + "-----");
         ArrayList<Score> scoreList = Score.getScoreList();
         scoreList.stream().filter(m->m.getTournament().getName().equals(tournament))
                 .forEach(System.out::println);
@@ -32,12 +36,12 @@ public class DisplayScores {
                 .forEach(m-> System.out.println(m.getTournament().getName() +  " - Score: (" + m.getScore() +")"));
         System.out.println();
         System.out.println("Current Tournaments");
-        System.out.println("----------------");
+        System.out.println("-------------------");
         scoreList.stream().filter(m->m.getMember().getMemberID() == memberID).filter(m-> m.getTournament().tournamentDateCheck() == 0)
                 .forEach(m-> System.out.println(m.getTournament().getName() +  " - Score: (" + m.getScore() +")"));
         System.out.println();
         System.out.println("Registered Tournaments");
-        System.out.println("----------------");
+        System.out.println("----------------------");
         scoreList.stream().filter(m->m.getMember().getMemberID() == memberID).filter(m-> m.getTournament().tournamentDateCheck() == -1)
                 .forEach(m-> System.out.println(m.getTournament().getName() +  " - Score: (" + m.getScore() +")"));
         System.out.println();

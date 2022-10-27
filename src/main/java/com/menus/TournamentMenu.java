@@ -20,7 +20,7 @@ public class TournamentMenu {
                     2. Register Member 
                     3. Remove Member
                     4. Display Participating Member by Tournament 
-                    5. Edit Tournament Details
+                    5. Enter Member Tournament Scores
                     6. View All Tournaments
                     7. Return to Main Menu
                     """);

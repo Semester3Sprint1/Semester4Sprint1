@@ -13,13 +13,14 @@ public class RemoveTournamentMember {
         // finds the tournament by its name
         while(true){
             Tournament tournamentToUse = SearchForTournament.findTournament((int) Console.readNumber("Enter Tournament ID: ", 0));
+            tournamentToUse.displayTournamentParticipants();
             Member memberToDelete = SearchForMember.findMember((int) Console.readNumber("Enter Member ID: ", 0));
 
 
             // find member to remove by ID
             if (memberToDelete != null && tournamentToUse != null){
-                TournamentDetail register = new TournamentDetail();
-                register.removeMemberFromTournament(memberToDelete.getMemberID(), tournamentToUse.getTournamentID());
+                TournamentDetail delete = new TournamentDetail();
+                delete.removeMemberFromTournament(memberToDelete.getMemberID(), tournamentToUse.getTournamentID());
 
                 tournamentToUse.deleteMember(memberToDelete);
                 Score.getScoreList().remove(FindScore.findScore(memberToDelete, tournamentToUse));

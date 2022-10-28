@@ -13,24 +13,22 @@ public class HomeMenu {
         while(true){
             System.out.println("""
                     Please Choose an Option:
-                    1. Member Services
-                    2. Tournament Menu
-                    3. Report Menu
-                    4. Quit
+                        1. Member Services
+                        2. Tournament Menu
+                        3. Quit
                     """);
-            int selection = (int) Console.readNumber("Enter Selection: " , 1,4);
+            int selection = (int) Console.readNumber("Enter Selection: " , 1,3);
             System.out.println();
 
             switch(selection){
                 case 1 -> MemberMenu.show();
                 case 2 -> TournamentMenu.show();
-                case 3 -> System.out.println("Reports Section");
-                case 4  -> {
+                case 3  -> {
                     System.out.println("Closing Program");
                     System.exit(0);
                 }
                 default -> {
-                    System.out.println("Invalid Entry. Please choose a option between 1 and 4");
+                    System.out.println("Invalid Entry. Please choose a option between 1 and 3");
                     System.out.println();
                 }
             }

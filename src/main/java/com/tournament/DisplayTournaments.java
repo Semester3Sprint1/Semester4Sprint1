@@ -6,8 +6,13 @@ import java.util.ArrayList;
 
 public class DisplayTournaments {
     public static void show(){
+        System.out.println("ID" + "    " + "Tournament Name");
+        System.out.println("--" + "    " + "---------------");
         SearchForTournament.tList
-                .forEach(m-> System.out.println(m.getName()));
+                .forEach(m-> {
+                    String output = String.format("%-6s%9s", m.getTournamentID(), m.getName());
+                    System.out.println(output);
+                });
     }
 
     public static void displayMemberByTournament(ArrayList<Tournament> tList){
@@ -18,11 +23,9 @@ public class DisplayTournaments {
             if(tournamentToUse != null){
                 tournamentToUse.displayTournamentParticipants();
                 break;
-            }else{
+            } else {
                 System.out.println("Error Invalid Tournament Name, Please Try again");
             }
         }
-
-
     }
 }

@@ -50,6 +50,8 @@ public class AddMember {
 
         new SearchForMember(members);
 
+        System.out.println("Member added.\n");
+
         return member;
     }
 

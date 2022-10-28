@@ -21,7 +21,8 @@ public class DisplayMember {
         System.out.println("Member ID" + "   " + "Member Name");
         System.out.println("---------" + "   " + "-----------");
         members.forEach((key, value) -> {
-            System.out.println("    " + key + "       " + value.getName());
+            String output = String.format("    %-8s%9s", key, value.getName());
+            System.out.println(output);
         });
         System.out.println();
     }

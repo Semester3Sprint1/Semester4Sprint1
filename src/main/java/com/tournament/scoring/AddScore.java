@@ -12,7 +12,9 @@ public class AddScore {
     public static void addScore(){
         // finds the tournament by its name
         while(true){
-            Tournament tournamentToUse = SearchForTournament.findTournament(Console.readLine("Enter Tournament Name : ", 3, 200), SearchForTournament.tList);
+            Tournament tournamentToUse = SearchForTournament.findTournament(Console.readLine("Enter Tournament Name: ", 3, 200), SearchForTournament.tList);
+            tournamentToUse.displayTournamentParticipants();
+
             Member memberToAdd = SearchForMember.findMember((int) Console.readNumber("Enter member ID: ", 0));
             Console.nextLine();
             int score = (int) Console.readNumber("Enter Member Score: ", -20, 30);

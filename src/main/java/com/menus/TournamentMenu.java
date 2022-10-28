@@ -20,14 +20,14 @@ public class TournamentMenu {
             System.out.println();
             System.out.println("""
                     Please Choose an Option:
-                    1. Create Tournament
-                    2. Register Member 
-                    3. Remove Member
-                    4. Display Participating Member by Tournament 
-                    5. Enter Member Tournament Score
-                    6. View All Tournaments
-                    7. View Tournament Results
-                    8. Return to Main Menu
+                        1. Create Tournament
+                        2. Register Member
+                        3. Remove Member
+                        4. Display Participating Member by Tournament
+                        5. Enter Member Tournament Score
+                        6. View All Tournaments
+                        7. View Tournament Results
+                        8. Return to Main Menu
                     """);
 
             int selection = (int) Console.readNumber("Enter Selection: ", 1, 8);
@@ -47,7 +47,7 @@ public class TournamentMenu {
                     HomeMenu.show();
                 }
                 default -> {
-                    System.out.println("Invalid Entry. Please choose a option between 1 and 7");
+                    System.out.println("Invalid Entry. Please choose a option between 1 and 8");
                     System.out.println();
                 }
             }

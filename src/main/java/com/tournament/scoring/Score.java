@@ -65,7 +65,7 @@ public class Score {
 
     @Override
     public String toString(){
-        String print = String.format("%-14s%9d", member.getName(),score);
+        String print = String.format("%-14s%9d", member.getName(), score);
         return(print);
     }
 }

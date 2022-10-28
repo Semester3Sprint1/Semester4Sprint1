@@ -166,9 +166,11 @@ public class Tournament {
 
     public void displayTournamentParticipants(){
         System.out.println(getName() + " Member Participants");
+        System.out.println("ID" + " " + "Member Name");
+        System.out.println("--" + " " + "-----------");
         memberList.stream()
                 .sorted(Comparator.comparing(Member::getName))
-                .forEach(m-> System.out.println(m.getName()));
+                .forEach(m-> System.out.println(m.getMemberID() + "  " + m.getName()));
     }
     // designed for Lambda filtering
     public int tournamentDateCheck(){

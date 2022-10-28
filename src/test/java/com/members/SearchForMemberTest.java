@@ -35,7 +35,12 @@ public class SearchForMemberTest {
             Assertions.assertEquals(SearchForMember.findMember(1), newMember);
 
             search.when(() -> SearchForMember.getMembers()).thenReturn(members);
-            Assertions.assertTrue(members.size() == 2);
+            Assertions.assertTrue(SearchForMember.getMembers().size() == 2);
+        }
+
+        try (MockedStatic<SearchForMember> search = Mockito.mockStatic(SearchForMember.class)){
+            //search.when(() -> SearchForMember.findMember(15)).thenReturn(null);
+            Assertions.assertNull(SearchForMember.findMember(15));
         }
     }
 }

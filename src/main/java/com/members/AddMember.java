@@ -18,6 +18,13 @@ public class AddMember {
         new SearchForMember(members);
     }
 
+     public static int insertToDB(Member member){
+        InsertMember insert = new InsertMember();
+        int newID = insert.addMemberToDB(member);
+
+        return newID;
+    }
+
     public static Member createMember(){
         // Membership Type
         Membership memType = choosePlanType();
@@ -35,9 +42,7 @@ public class AddMember {
 
         Member member = new Member(firstName, lastName, address, email, startDate, memType);
 
-
-        InsertMember insert = new InsertMember();
-        int newID = insert.addMemberToDB(member);
+        int newID = insertToDB(member);
 
         member.setMemberID(newID);
 

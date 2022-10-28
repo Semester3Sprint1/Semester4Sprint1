@@ -51,7 +51,7 @@ public class GetMember extends Connection {
     public ArrayList<String> getFamilyOnPlan(int plan_id){
         ArrayList<String> family = new ArrayList<>();
 
-        String SQL = "SELECT member_id FROM member\n" +
+        String SQL = "SELECT member_id, first_name ||' '|| last_name as name FROM member\n" +
                 "WHERE plan_id = ?;";
         try (java.sql.Connection conn = connect();
              PreparedStatement pstmt = conn.prepareStatement(SQL)) {
@@ -60,7 +60,7 @@ public class GetMember extends Connection {
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
-                family.add(SearchForMember.findMember(rs.getInt("member_id")).getName());
+                family.add(rs.getString("name"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

@@ -10,7 +10,7 @@ public class Family extends Membership {
     private final int DURATION_IN_DAYS;
     private final double DISCOUNT_RATE;
     private final int typeCode = 4;
-    ArrayList<Integer> familyMembers = new ArrayList<>();
+    ArrayList<String> familyMembers = new ArrayList<>();
 
     public Family() {
         this.DURATION_IN_DAYS = 365;
@@ -19,7 +19,7 @@ public class Family extends Membership {
             if (memID == 0) break;
             Member searchedMember = SearchForMember.findMember(memID);
             if (searchedMember != null) {
-                familyMembers.add(searchedMember.getMemberID());
+                familyMembers.add(searchedMember.getName());
                 System.out.println("Family member added.");
             }
         }
@@ -28,7 +28,7 @@ public class Family extends Membership {
         else this.DISCOUNT_RATE = familyMembers.size() / 10.0;
     }
 
-    public Family(int duration, double DISCOUNT_RATE, ArrayList<Integer> familyMembers) {
+    public Family(int duration, double DISCOUNT_RATE, ArrayList<String> familyMembers) {
         this.DURATION_IN_DAYS = duration;
         this.DISCOUNT_RATE = DISCOUNT_RATE;
         this.familyMembers = familyMembers;
@@ -52,6 +52,10 @@ public class Family extends Membership {
     @Override
     public int getTypeCode() {
         return typeCode;
+    }
+
+    public ArrayList<String> getFamilyMembers() {
+        return familyMembers;
     }
 
     @Override

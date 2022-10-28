@@ -2,6 +2,7 @@ package com.database;
 
 import com.members.Address;
 import com.members.Member;
+import com.members.SearchForMember;
 import com.members.membership.*;
 
 import java.sql.PreparedStatement;
@@ -47,8 +48,8 @@ public class GetMember extends Connection {
     }
 
 
-    public ArrayList<Integer> getFamilyOnPlan(int plan_id){
-        ArrayList<Integer> family = new ArrayList<>();
+    public ArrayList<String> getFamilyOnPlan(int plan_id){
+        ArrayList<String> family = new ArrayList<>();
 
         String SQL = "SELECT member_id FROM member\n" +
                 "WHERE plan_id = ?;";
@@ -59,7 +60,7 @@ public class GetMember extends Connection {
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
-                family.add(rs.getInt("member_id"));
+                family.add(SearchForMember.findMember(rs.getInt("member_id")).getName());
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

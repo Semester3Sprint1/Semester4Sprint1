@@ -1,26 +1,98 @@
 package com.members;
 
+import com.database.GetMember;
+import com.database.InsertMember;
+import com.general.Console;
 
-import org.junit.jupiter.api.AfterEach;
-
+import com.members.membership.Normal;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.MockedStatic;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.io.PrintStream;
+import static org.mockito.Mockito.mock;
 
-
-
+@ExtendWith(MockitoExtension.class)
 public class AddMemberTest {
 
+
+    @Mock
+    private GetMember connection = new GetMember();
+
+    @Mock
+    InsertMember insert;
+
+    @Mock
+    Member mockMember = mock(Member.class);
+
+//    @Test
+//    public void loadMemberTest(){
+//        HashMap<Integer, Member> members = new HashMap<>();
+//
+//        Member newMember = AddMember.createDefaultMember();
+//        newMember.setMemberID(1);
+//        members.put(newMember.getMemberID(), newMember);
+//
+//        Member newMember2 = AddMember.createDefaultMember();
+//        newMember2.setMemberID(2);
+//        newMember2.setFirstName("Mike");
+//        newMember2.setLastName("Wadden");
+//        members.put(newMember2.getMemberID(), newMember2);
+//
+//        try (MockedStatic<SearchForMember> search = Mockito.mockStatic(SearchForMember.class)){
+//            search.when(() -> SearchForMember.findMember(1)).thenReturn(newMember);
+//            search.when(() -> SearchForMember.findMember(2)).thenReturn(newMember2);
+//
+//            Mockito.when(connection.getMembers()).thenReturn(members);
+//            //Mockito.when(connection.getMembership("Normal", 1, 365, 0)).thenReturn(new Normal(365, 0));
+//            //Mockito.when(connection.getFamilyOnPlan(1)).thenReturn(new ArrayList<>());
+//            // AddMember.loadMembers();
+//
+//            //Assertions.assertEquals(SearchForMember.findMember(1), newMember);
+//        }
+//    }
+
+//    @Test
+//    public void testCreateMember(){
+//        Address defaultAddress = AddMember.getDefaultAddress();
+//
+//        try (MockedStatic<Console> console = Mockito.mockStatic(Console.class)){
+//            try (MockedStatic<AddMember> newMember = Mockito.mockStatic(AddMember.class)){
+//                newMember.when(AddMember::choosePlanType).thenReturn(new Normal());
+//                newMember.when(AddMember::getAddress).thenReturn(defaultAddress);
+//
+//                console.when(() -> Console.readString("First Name: ", 1, 32)).thenReturn("John");
+//                console.when(() -> Console.readString("Last Name: ", 1, 32)).thenReturn("Smith");
+//                console.when(() -> Console.readString("Email Address: ", 1, 32)).thenReturn("jsmith@gmail.com");
+//                console.when(() -> Console.readStringDate("Start Date (MM/DD/YYYY): ")).thenReturn("10/10/1991");
+//
+//                Mockito.when(insert.addMemberToDB(mockMember)).thenReturn(1);
+//
+//                Member newGuy = AddMember.createMember();
+//                Assertions.assertEquals(newGuy.getName(), "John Smith");
+//            }
+//        }
+//    }
+
     @Test
+    public void testGetAddress(){
+            try (MockedStatic<Console> console = Mockito.mockStatic(Console.class)){
+                console.when(() -> Console.readLine("Street Address: ", 1, 32)).thenReturn("51A Amherst");
+                console.when(() -> Console.readLine("City: ", 1, 32)).thenReturn("St. John's");
+                console.when(() -> Console.readLine("Province: ", 1, 32)).thenReturn("51A Amherst");
+                console.when(() -> Console.readLine("Postal Code: ", 1, 32)).thenReturn("51A Amherst");
 
-    public void addTestMember() {
+                Address newAddress = AddMember.getAddress();
+                Assertions.assertEquals(newAddress.getCity(), "St. John's");
+            }
+    }
 
+    @Test
+    public void testCreateDefaultMember() {
         Member testMember = AddMember.createDefaultMember();
 
         Assertions.assertTrue(testMember.toString().contains("Alex"));
@@ -28,8 +100,7 @@ public class AddMemberTest {
     }
 
     @Test
-
-    public void testGetAddress() {
+    public void testGetDefaultAddress() {
         Address testAddress = AddMember.getDefaultAddress();
 
         Assertions.assertTrue(testAddress.toString().contains("NL"));

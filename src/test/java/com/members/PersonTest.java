@@ -18,4 +18,22 @@ public class PersonTest {
         Assertions.assertEquals(result, expectedResult);
     }
 
+    @Test
+    public void setAddressTest(){
+        Member testMember = AddMember.createDefaultMember();
+        Address testAddress = AddMember.getDefaultAddress();
+        testAddress.setStreetAddress("52 Bingo Street");
+
+        testMember.setAddress(testAddress);
+        Assertions.assertEquals(testMember.getAddress().getStreetAddress(), "52 Bingo Street");
+    }
+
+    @Test
+    public void setEmailTest(){
+        Member testMember = AddMember.createDefaultMember();
+        String newEmail = "fakeEmail@email.com";
+        testMember.setEmail(newEmail);
+
+        Assertions.assertEquals(testMember.getEmail(), newEmail);
+    }
 }

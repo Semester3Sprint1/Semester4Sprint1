@@ -18,8 +18,8 @@ public class CreateTournament  {
     }
 
 
-    public static  void userInput(){
-        InsertTournament insert = new InsertTournament();
+    public static  void userInput(InsertTournament insert) {
+//        InsertTournament insert = new InsertTournament();
 
         // Takes input from user to build tournament constructor
 
@@ -54,22 +54,5 @@ public class CreateTournament  {
         }
 
     }
-
-
-    public static void defaultTournamentInput(){
-        String name = Console.readLine("Enter Tournament Name: ");
-        String startDate = "03/22/2022";
-        String endDate =  "03/23/2022";
-        String location = "18 hole";
-        double entryFee = 500.50;
-
-        SearchForTournament.tList.add(new CharityTournament(name, startDate, endDate, location, entryFee, "Mikes Charity"));
-
-    }
-
-
-
-
-
 
 }

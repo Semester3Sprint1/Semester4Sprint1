@@ -43,4 +43,16 @@ public class SearchForMemberTest {
             Assertions.assertNull(SearchForMember.findMember(15));
         }
     }
+
+    @Test
+    public void testFindNull(){
+        HashMap<Integer, Member> members = new HashMap<>();
+
+        new SearchForMember(members);
+        Member testMember = SearchForMember.findMember(1);
+        Assertions.assertNull(testMember);
+
+        members = SearchForMember.getMembers();
+        Assertions.assertEquals(members.size(), 0);
+    }
 }

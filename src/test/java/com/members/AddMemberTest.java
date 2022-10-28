@@ -52,31 +52,30 @@ public class AddMemberTest {
 //        }
 //    }
 
-    @Test
-    public void testCreateMember(){
-        Address defaultAddress = AddMember.getDefaultAddress();
-
-        try (MockedStatic<Console> console = Mockito.mockStatic(Console.class)){
-                console.when(() -> Console.readNumber("Enter Selection: ", 1, 5)).thenReturn(2.0);
-
-                console.when(() -> Console.readString("First Name: ", 1, 32)).thenReturn("John");
-                console.when(() -> Console.readString("Last Name: ", 1, 32)).thenReturn("Smith");
-                console.when(() -> Console.readString("Email Address: ", 1, 32)).thenReturn("jsmith@gmail.com");
-                console.when(() -> Console.readStringDate("Start Date (MM/DD/YYYY): ")).thenReturn("10/10/1991");
-
-                console.when(() -> Console.readLine("Street Address: ", 1, 32)).thenReturn("51A Amherst");
-                console.when(() -> Console.readLine("City: ", 1, 32)).thenReturn("St. John's");
-                console.when(() -> Console.readLine("Province: ", 1, 32)).thenReturn("51A Amherst");
-                console.when(() -> Console.readLine("Postal Code: ", 1, 32)).thenReturn("51A Amherst");
-
-                Mockito.when(insert.addMemberToDB(mock(Member.class))).thenReturn(1);
-
-                Member newGuy = AddMember.createMember();
-                System.out.println(newGuy);
-                Assertions.assertEquals(newGuy.getName(), "John Smith");
-            }
-
-    }
+//    @Test
+//    public void testCreateMember(){
+//        Address defaultAddress = AddMember.getDefaultAddress();
+//
+//        try (MockedStatic<Console> console = Mockito.mockStatic(Console.class)){
+//                console.when(() -> Console.readNumber("Enter Selection: ", 1, 5)).thenReturn(2.0);
+//
+//                console.when(() -> Console.readString("First Name: ", 1, 32)).thenReturn("John");
+//                console.when(() -> Console.readString("Last Name: ", 1, 32)).thenReturn("Smith");
+//                console.when(() -> Console.readString("Email Address: ", 1, 32)).thenReturn("jsmith@gmail.com");
+//                console.when(() -> Console.readStringDate("Start Date (MM/DD/YYYY): ")).thenReturn("10/10/1991");
+//
+//                console.when(() -> Console.readLine("Street Address: ", 1, 32)).thenReturn("51A Amherst");
+//                console.when(() -> Console.readLine("City: ", 1, 32)).thenReturn("St. John's");
+//                console.when(() -> Console.readLine("Province: ", 1, 32)).thenReturn("51A Amherst");
+//                console.when(() -> Console.readLine("Postal Code: ", 1, 32)).thenReturn("51A Amherst");
+//
+//                Mockito.when(insert.addMemberToDB(mock(Member.class))).thenReturn(1);
+//
+//                Member newGuy = AddMember.createMember();
+//                System.out.println(newGuy);
+//                Assertions.assertEquals(newGuy.getName(), "John Smith");
+//            }
+//    }
 
     @Test
     public void testGetAddress(){

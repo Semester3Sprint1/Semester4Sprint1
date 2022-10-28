@@ -6,9 +6,6 @@ public abstract class Person {
     private Address address;
     private String email;
 
-    public Person (String firstname){
-        this.firstName = firstname;
-    }
     public Person(String firstName, String lastName, Address address, String email) {
         this.firstName = firstName;
         this.lastName = lastName;

@@ -26,12 +26,18 @@ public class DisplayMember {
         System.out.println();
     }
 
-    public void displayMember(){
+    public String displayMember(){
         if (member != null){
             System.out.println("\nMember Info: ");
             System.out.println("------------");
             System.out.println(member);
             System.out.println();
             DisplayScores.displayTournamentDetailsByMember(member.getMemberID());
-    }}
+            return """
+                    Member Info:
+                    ------------
+                    """ + member.toString();
+        }
+        return null;
+    }
 }

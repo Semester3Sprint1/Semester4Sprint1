@@ -1,6 +1,8 @@
 package com.menus;
 
 import com.general.Console;
+import com.members.AddMember;
+import com.members.DisplayMember;
 
 public class ReportMenu {
 
@@ -25,7 +27,10 @@ public class ReportMenu {
 
 
             switch (selection) {
-                case 1 -> System.out.println("Member List");
+                case 1 -> {
+                    DisplayMember display = new DisplayMember(AddMember.getMembers());
+                    display.displayMembers();
+                }
                 case 2 -> System.out.println("Member List by Tournament");
                 case 3 -> System.out.println("Current");
                 case 4 -> System.out.println("Previously");

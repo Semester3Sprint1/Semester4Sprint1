@@ -6,7 +6,6 @@ public abstract class Person {
     private Address address;
     private String email;
 
-
     public Person (String firstname){
         this.firstName = firstname;
     }
@@ -54,7 +53,6 @@ public abstract class Person {
     }
 
     @Override
-
     public String toString(){
         return( "Name: " + getName() + "\nAddress: " + getAddress() + "\nEmail: " +getEmail() );
     }

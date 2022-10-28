@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 public class SearchForMember {
     private static HashMap<Integer, Member> members;
-    //private static ArrayList<Member> members2;
 
     SearchForMember(HashMap<Integer, Member> members) {
         SearchForMember.members = members;
@@ -12,7 +11,7 @@ public class SearchForMember {
 
     public static Member findMember(int memberID) {
         Member searchedAccount;
-        //var result = members2.stream().filter(m -> m.getMemberID().equals(memberID));
+
         boolean accountFound = members.containsKey(memberID);
         if (!accountFound) System.out.println("Invalid entry. That account ID does not exist.");
         searchedAccount = members.get(memberID);

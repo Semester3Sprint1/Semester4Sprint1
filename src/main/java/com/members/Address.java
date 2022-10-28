@@ -1,9 +1,8 @@
 package com.members;
 
 public class Address {
-
     private static int addressID = 0;
-    private  String streetAddress;
+    private String streetAddress;
     private String city;
     private String postalCode;
     private String province;
@@ -15,7 +14,6 @@ public class Address {
         this.postalCode = "";
         this.province = "";
         this.country = "";
-
     }
 
     public Address( String streetAddress,String city, String postalCode, String province, String country) {

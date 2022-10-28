@@ -1,6 +1,7 @@
-package com.tournament;
+package com.tournament.scoring;
 
 import com.members.Member;
+import com.tournament.Tournament;
 
 import java.util.ArrayList;
 

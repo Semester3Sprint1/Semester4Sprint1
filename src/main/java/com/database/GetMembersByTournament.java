@@ -3,6 +3,7 @@ package com.database;
 import com.members.Member;
 import com.members.SearchForMember;
 import com.tournament.*;
+import com.tournament.scoring.Score;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

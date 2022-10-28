@@ -1,6 +1,9 @@
-package com.tournament;
+package com.tournament.scoring;
 
 import com.general.Console;
+import com.tournament.SearchForTournament;
+import com.tournament.Tournament;
+import com.tournament.scoring.DisplayScores;
 
 public class DisplayFinalStandings {
 

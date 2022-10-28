@@ -1,6 +1,6 @@
 package com.members;
 
-import com.tournament.DisplayScores;
+import com.tournament.scoring.DisplayScores;
 
 import java.util.HashMap;
 
@@ -18,11 +18,12 @@ public class DisplayMember {
 
     public void displayMembers(){
         System.out.println("\nAll Members:");
+        System.out.println("Member ID" + "   " + "Member Name");
+        System.out.println("---------" + "   " + "-----------");
         members.forEach((key, value) -> {
-            System.out.println("-----------");
-            System.out.println(value);
-            System.out.println();
+            System.out.println("    " + key + "       " + value.getName());
         });
+        System.out.println();
     }
 
     public void displayMember(){

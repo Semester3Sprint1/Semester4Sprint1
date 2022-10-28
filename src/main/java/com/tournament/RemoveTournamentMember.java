@@ -4,6 +4,8 @@ import com.database.TournamentDetail;
 import com.general.Console;
 import com.members.Member;
 import com.members.SearchForMember;
+import com.tournament.scoring.FindScore;
+import com.tournament.scoring.Score;
 
 public class RemoveTournamentMember {
 

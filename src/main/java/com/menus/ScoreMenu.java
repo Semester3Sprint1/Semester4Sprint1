@@ -4,10 +4,10 @@ import com.database.TournamentDetail;
 import com.general.Console;
 import com.members.Member;
 import com.members.SearchForMember;
-import com.tournament.Score;
+import com.tournament.scoring.Score;
 import com.tournament.SearchForTournament;
 import com.tournament.Tournament;
-import com.tournament.FindScore;
+import com.tournament.scoring.FindScore;
 
 public class ScoreMenu {
 

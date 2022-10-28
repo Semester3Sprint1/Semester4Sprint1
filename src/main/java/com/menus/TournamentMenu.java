@@ -3,7 +3,7 @@ package com.menus;
 import com.general.Console;
 import com.tournament.AddTournamentMember;
 import com.tournament.CreateTournament;
-import com.tournament.DisplayFinalStandings;
+import com.tournament.scoring.DisplayFinalStandings;
 import com.tournament.DisplayTournaments;
 import com.tournament.RemoveTournamentMember;
 

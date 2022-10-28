@@ -1,12 +1,9 @@
-package com.tournament;
+package com.tournament.scoring;
 
-import com.general.DateCheck;
-import com.general.DateValidator;
+import com.tournament.Tournament;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.function.Predicate;
 
 public class DisplayScores {
     public static void displayScores(ArrayList<Score> scoreList, Tournament check ){

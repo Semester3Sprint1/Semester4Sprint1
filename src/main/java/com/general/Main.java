@@ -4,8 +4,6 @@ import com.database.GetMembersByTournament;
 import com.members.AddMember;
 import com.menus.HomeMenu;
 import com.tournament.CreateTournament;
-import com.tournament.DisplayScores;
-import com.tournament.Score;
 
 public class Main {
 

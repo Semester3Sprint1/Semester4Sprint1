@@ -19,10 +19,7 @@ public class CreateTournament  {
 
 
     public static  void userInput(InsertTournament insert) {
-//        InsertTournament insert = new InsertTournament();
-
         // Takes input from user to build tournament constructor
-
        String name = Console.readLine("Enter Tournament Name: ", 5, 200);
         String startDate = Console.readStringDate("Enter Tournament Start Date (03/22/2022) format : ");
         String endDate = Console.readStringDate("Enter Tournament End Date (03/22/2022) format :");
@@ -50,9 +47,6 @@ public class CreateTournament  {
 
              insert.addCompetitiveTypeToDB(newTournament);
              SearchForTournament.tList.add(newTournament);
-
         }
-
     }
-
 }

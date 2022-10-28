@@ -2,11 +2,8 @@ package com.menus;
 
 import com.database.InsertTournament;
 import com.general.Console;
-import com.tournament.AddTournamentMember;
-import com.tournament.CreateTournament;
+import com.tournament.*;
 import com.tournament.scoring.DisplayFinalStandings;
-import com.tournament.DisplayTournaments;
-import com.tournament.RemoveTournamentMember;
 import com.tournament.scoring.AddScore;
 
 
@@ -41,7 +38,7 @@ public class TournamentMenu {
                 case 1 -> CreateTournament.userInput(insert);
                 case 2 -> AddTournamentMember.show();
                 case 3 -> RemoveTournamentMember.show();
-                case 4 -> DisplayTournaments.displayMemberByTournament();
+                case 4 -> DisplayTournaments.displayMemberByTournament(SearchForTournament.tList);
                 case 5 -> AddScore.addScore();
                 case 6 -> DisplayTournaments.show();
                 case 7 -> DisplayFinalStandings.show();

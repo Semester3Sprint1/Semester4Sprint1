@@ -4,6 +4,7 @@ import com.database.GetMember;
 import com.database.GetTournament;
 import com.database.InsertTournament;
 import com.general.Console;
+import com.members.AddMember;
 import com.members.Member;
 
 import java.util.ArrayList;
@@ -16,7 +17,6 @@ public class CreateTournament  {
         GetTournament connection = new GetTournament();
         SearchForTournament.tList = connection.getTournament();
     }
-
 
     public static  void userInput(InsertTournament insert) {
         // Takes input from user to build tournament constructor
@@ -47,6 +47,29 @@ public class CreateTournament  {
 
              insert.addCompetitiveTypeToDB(newTournament);
              SearchForTournament.tList.add(newTournament);
+        }
+    }
+
+    public static Tournament createDefaultTournament(String selection){
+        String name = "PG Open";
+        String startDate = "10/10/1991";
+        String endDate = "10/11/1991";
+
+        String location = "St. John's";
+        double entryFee =  25.00;
+
+        if(selection.equals("C")){
+            String charityName = "Ultima Charity";
+            CharityTournament newTournament = new CharityTournament(name, startDate, endDate, location, entryFee, charityName);
+
+            SearchForTournament.tList.add(newTournament);
+            return newTournament;
+        } else {
+            double cashPrize = 1000.0;
+            CompetitiveTournament newTournament = new CompetitiveTournament(name, startDate, endDate, location, entryFee, cashPrize);
+
+            SearchForTournament.tList.add(newTournament);
+            return newTournament;
         }
     }
 }

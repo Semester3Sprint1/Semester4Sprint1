@@ -55,11 +55,11 @@ public class Score {
         Score.scoreList = scoreList;
     }
 
-    public void addScore(Score score){
+    public static void addScore(Score score){
         getScoreList().add(score);
     }
 
-    public void removeScore(Score score){
+    public static void removeScore(Score score){
         getScoreList().remove(score);
     }
 

@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Console {
     private static final Scanner input = new Scanner(System.in);
+    private static final DateValidator validator = new DateCheck("MM/dd/yyyy");
 
     // For number inputs - method overloaded to allow for min & max values if needed
 
@@ -215,6 +216,20 @@ public class Console {
             }
         }
         return choice;
+    }
+
+    public static String readStringDate(String prompt,Scanner input, DateValidator validator){
+        String value;
+        boolean check;
+        while(true){
+            System.out.print(prompt);
+            value = input.next().trim();
+            check =  validator.isValid(value);
+            if(check)
+                break;
+            else System.out.println("Invalid Entry. Use the format mm/dd/yyyy");
+        }
+        return value;
     }
 
 }

@@ -143,6 +143,23 @@ public class ConsoleTest {
     }
 
 
+    @Test
+
+    public void readDateCheckCorrectTest(){
+        DateValidator validator = new DateCheck("MM/dd/yyyy");
+        Mockito.when(mockScanner.next()).thenReturn("03/23/2022");
+        Assertions.assertEquals("03/23/2022",Console.readStringDate("Enter Date", mockScanner, validator));
+    }
+    @Test
+    public void readDateCheckIncorrectTest(){
+        DateValidator validator = new DateCheck("MM/dd/yyyy");
+        Mockito.when(mockScanner.next()).thenReturn("03/40/2022").thenReturn("03/23/2022");
+        Assertions.assertEquals("03/23/2022",Console.readStringDate("Enter Date", mockScanner, validator));
+    }
+
+
+
+
 
 
 }

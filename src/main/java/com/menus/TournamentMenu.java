@@ -10,8 +10,9 @@ import com.tournament.scoring.AddScore;
 
 public class TournamentMenu {
 
-    public static void show() {
 
+    public static void show() {
+      TournamentDetail delete = new TournamentDetail();
         InsertTournament insert = new InsertTournament();
         TournamentDetail update = new TournamentDetail();
 
@@ -39,7 +40,7 @@ public class TournamentMenu {
             switch (selection) {
                 case 1 -> CreateTournament.userInput(insert);
                 case 2 -> AddTournamentMember.show();
-                case 3 -> RemoveTournamentMember.show();
+                case 3 -> RemoveTournamentMember.show(delete);
                 case 4 -> DisplayTournaments.displayMemberByTournament(SearchForTournament.tList);
                 case 5 -> AddScore.addScore(update);
                 case 6 -> DisplayTournaments.show();

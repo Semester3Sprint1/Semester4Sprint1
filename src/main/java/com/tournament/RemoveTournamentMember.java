@@ -7,19 +7,22 @@ import com.members.SearchForMember;
 import com.tournament.scoring.FindScore;
 import com.tournament.scoring.Score;
 
+import java.util.ArrayList;
+
 public class RemoveTournamentMember {
 
-    public static void show(){
+    public static void show(TournamentDetail delete){
         // finds the tournament by its name
         while(true){
-            Tournament tournamentToUse = SearchForTournament.findTournament((int) Console.readNumber("Enter Tournament ID: ", 0));
-            tournamentToUse.displayTournamentParticipants();
-            Member memberToDelete = SearchForMember.findMember((int) Console.readNumber("Enter Member ID: ", 0));
 
+            int tournamentId = (int) Console.readNumber("Enter Tournament ID: ", 0 );
+            Tournament tournamentToUse = SearchForTournament.findTournament( tournamentId);
+            int memberId = (int)Console.readNumber("Enter Member ID: ", 0);
+            Member memberToDelete = SearchForMember.findMember(( memberId));
 
             // find member to remove by ID
             if (memberToDelete != null && tournamentToUse != null){
-                TournamentDetail delete = new TournamentDetail();
+
                 delete.removeMemberFromTournament(memberToDelete.getMemberID(), tournamentToUse.getTournamentID());
 
                 tournamentToUse.deleteMember(memberToDelete);
@@ -31,4 +34,6 @@ public class RemoveTournamentMember {
             }
         }
     }
+
+
 }

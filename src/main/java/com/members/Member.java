@@ -69,7 +69,6 @@ public class Member extends Person{
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     @Override

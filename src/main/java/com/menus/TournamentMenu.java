@@ -1,6 +1,7 @@
 package com.menus;
 
 import com.database.InsertTournament;
+import com.database.TournamentDetail;
 import com.general.Console;
 import com.tournament.*;
 import com.tournament.scoring.DisplayFinalStandings;
@@ -12,6 +13,7 @@ public class TournamentMenu {
     public static void show() {
 
         InsertTournament insert = new InsertTournament();
+        TournamentDetail update = new TournamentDetail();
 
         System.out.println("Tournament Menu");
         System.out.println();
@@ -39,7 +41,7 @@ public class TournamentMenu {
                 case 2 -> AddTournamentMember.show();
                 case 3 -> RemoveTournamentMember.show();
                 case 4 -> DisplayTournaments.displayMemberByTournament(SearchForTournament.tList);
-                case 5 -> AddScore.addScore();
+                case 5 -> AddScore.addScore(update);
                 case 6 -> DisplayTournaments.show();
                 case 7 -> DisplayFinalStandings.show();
                 case 8 -> {

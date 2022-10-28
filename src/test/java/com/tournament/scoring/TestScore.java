@@ -1,9 +1,11 @@
 package com.tournament.scoring;
 
+import com.members.AddMember;
 import com.members.Address;
 import com.members.Member;
 import com.members.membership.Membership;
 import com.tournament.CharityTournament;
+import com.tournament.CreateTournament;
 import com.tournament.Tournament;
 import com.tournament.scoring.Score;
 import org.junit.jupiter.api.Assertions;
@@ -21,9 +23,43 @@ import java.util.ArrayList;
 
 public class TestScore {
 
+    @Test
+    public void testSetTournament(){
+        Member defaultMember = AddMember.createDefaultMember();
+        Tournament defaultTournament = CreateTournament.createDefaultTournament("C");
+        Tournament otherDefaultTournament = CreateTournament.createDefaultTournament("T");
+        defaultTournament.addMember(defaultMember);
+
+        Score theScore = new Score(defaultMember, defaultTournament);
+        theScore.setTournament(otherDefaultTournament);
+        Assertions.assertEquals(theScore.getTournament().getName(), "PG Open");
+    }
 
     @Test
+    public void testSetMember(){
+        Member defaultMember = AddMember.createDefaultMember();
+        Tournament defaultTournament = CreateTournament.createDefaultTournament("C");
+        Member otherDefaultMember = AddMember.createDefaultMember();
+        otherDefaultMember.setMemberID(3);
+        defaultTournament.addMember(defaultMember);
 
+        Score theScore = new Score(defaultMember, defaultTournament);
+        theScore.setMember(otherDefaultMember);
+        Assertions.assertEquals(theScore.getMember().getMemberID(), 3);
+    }
+
+    @Test
+    public void testRemoveScore(){
+        Member defaultMember = AddMember.createDefaultMember();
+        Tournament defaultTournament = CreateTournament.createDefaultTournament("C");
+        defaultTournament.addMember(defaultMember);
+
+        Score theScore = new Score(defaultMember, defaultTournament);
+
+        Score.removeScore(theScore);
+    }
+
+    @Test
     public void testDefaultScore() {
         Address mockAddress = mock(Address.class);
         Membership mockMembership = mock(Membership.class);
@@ -38,7 +74,6 @@ public class TestScore {
     public static ArrayList<Score> scoreList = new ArrayList<>();
 
     @Test
-
     public void testScore() {
         Address mockAddress = mock(Address.class);
         Membership mockMembership = mock(Membership.class);
@@ -53,7 +88,6 @@ public class TestScore {
     }
 
     @Test
-
     public void testSetScore(){
         Address mockAddress = mock(Address.class);
         Membership mockMembership = mock(Membership.class);
@@ -68,7 +102,6 @@ public class TestScore {
     }
 
     @Test
-
     public void testGetScore(){
         Address mockAddress = mock(Address.class);
         Membership mockMembership = mock(Membership.class);

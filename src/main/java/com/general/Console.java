@@ -7,6 +7,79 @@ public class Console {
     private static final Scanner input = new Scanner(System.in);
 
     // For number inputs - method overloaded to allow for min & max values if needed
+
+    // Constructors for Testing
+    public static double readNumber(String prompt, double min, Scanner input) {
+        double value;
+        while (true) {
+            try {
+                System.out.print(prompt);
+                value = input.nextDouble();
+                if (value >= min) {
+                    break;
+                } else {
+                    System.out.println("Enter a value greater than " + min);
+                        }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid entry. Please enter a number.");
+
+            }
+
+        }
+        return value;
+    }
+
+    public static double readNumber(String prompt, double min, double max, Scanner input) {
+        double value;
+        while (true) {
+            try {
+                System.out.print(prompt);
+                value = input.nextDouble();
+                if (value >= min && value <= max) {
+                    break;
+                } else System.out.println("Enter a value between " + min + " and " + max);
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid entry. Please enter a number.");
+                input.nextLine();
+            }
+
+        }
+        return value;
+    }
+
+
+    public static String readString(String prompt, int min, int max, Scanner input){
+        String value;
+
+        while(true){
+            System.out.print(prompt);
+            value = input.next().trim();
+
+            if(value.length() < min || value.length() > max){
+                System.out.println("Invalid Entry: Input must be greater than " + min + " and less than " +  max);
+            }else break;
+
+        }
+        return value;
+    }
+
+
+    public static String readLine(String prompt, int min, int max, Scanner input){
+        String value;
+
+        while(true){
+            System.out.print(prompt);
+            value = input.nextLine().trim();
+
+            if(value.length() < min || value.length() > max){
+                System.out.println("Invalid Entry: Input must be greater than " + min + " and less than " +  max);
+            }else break;
+
+        }
+        return value;
+    }
+
+    //Constructors for Main Methods
     public static double readNumber(String prompt, double min) {
         double value;
         while (true) {

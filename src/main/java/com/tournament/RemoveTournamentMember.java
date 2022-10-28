@@ -22,7 +22,7 @@ public class RemoveTournamentMember {
 
             // find member to remove by ID
             if (memberToDelete != null && tournamentToUse != null){
-
+                System.out.println("is the test getting here");
                 delete.removeMemberFromTournament(memberToDelete.getMemberID(), tournamentToUse.getTournamentID());
 
                 tournamentToUse.deleteMember(memberToDelete);

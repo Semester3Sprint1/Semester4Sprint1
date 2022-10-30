@@ -1,11 +1,13 @@
 package com.menus;
 
-import com.members.AddMember;
 import com.general.Console;
+import com.menus.Interfaces.MenuHome;
 
-public class HomeMenu {
+public class HomeMenu  implements MenuHome {
 
-    public static void show(){
+
+
+    public  void show(){
 
         System.out.println("Mcllroy Country Club Management System");
         System.out.println();

@@ -39,6 +39,7 @@ public class DateCheck implements  DateValidator{
         try{
             stringFormat.parse(dateString);
         }catch(ParseException e){
+            System.out.println("Invalid Entry. Use the format mm/dd/yyyy");
             return false;
         }
 

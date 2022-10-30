@@ -21,6 +21,7 @@ public class Tournament {
     private Date endDate;
     private String location;
     private double entryFee;
+    private Tournament tournament;
 
    public static int  tournamentCount = 0;
 
@@ -29,9 +30,14 @@ public class Tournament {
 
     // Constructors
 
+
+    public Tournament(Tournament tournament) {
+        this.tournament = tournament;
+    }
+
     public Tournament (){
-        this.name = "Not Available";
-        this.location = "Not Available";
+        this.name = "undefined";
+        this.location = "undefined";
         this.entryFee = 0;
         setStartDate("01/01/2000");
         setEndDate("01/01/2000");
@@ -67,6 +73,11 @@ public class Tournament {
 
     // Getters
 
+
+    public Tournament getTournament() {
+        return tournament;
+    }
+
     public String getName() {
         return name;
     }
@@ -88,6 +99,9 @@ public class Tournament {
     }
 
 
+    public void setTournament(Tournament tournament) {
+        this.tournament = tournament;
+    }
 
     public void setStartDate(String date){
     DateFormat df = new SimpleDateFormat("MM/dd/yyyy");

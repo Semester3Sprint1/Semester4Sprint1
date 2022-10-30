@@ -29,6 +29,12 @@ public class CompetitiveTournament extends Tournament{
         tournamentCount++;
     }
 
+    public CompetitiveTournament(Tournament tournament, double cashPrize) {
+        super(tournament);
+        this.cashPrize = cashPrize;
+        tournamentCount++;
+    }
+
     //Getters
 
     public double getCashPrize() {

@@ -33,6 +33,12 @@ public class CharityTournament  extends Tournament{
         tournamentCount++;
     }
 
+    public CharityTournament(Tournament tournament, String charityName) {
+        super(tournament);
+        this.charityName = charityName;
+        tournamentCount++;
+    }
+
     //Getters
     public double getMoneyRaised() {
         return moneyRaised;

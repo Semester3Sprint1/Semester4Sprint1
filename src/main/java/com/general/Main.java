@@ -3,9 +3,11 @@ package com.general;
 import com.database.GetMembersByTournament;
 import com.members.AddMember;
 import com.menus.HomeMenu;
+import com.menus.Interfaces.MenuHome;
 import com.tournament.CreateTournament;
 
 public class Main {
+
 
     public static void main(String[] args){
         System.out.println("Loading database...");
@@ -17,6 +19,8 @@ public class Main {
         GetMembersByTournament load = new GetMembersByTournament();
         load.getMembersByTournament();
         System.out.println("Load completed. Launching program.\n");
-        HomeMenu.show();
+        MenuHome menu = new HomeMenu();
+        menu.show();
+
     }
 }

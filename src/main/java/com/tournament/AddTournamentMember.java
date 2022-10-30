@@ -13,6 +13,7 @@ public class AddTournamentMember {
         while(true){
             Tournament tournamentToUse = SearchForTournament.findTournament((int) Console.readNumber("Enter Tournament ID: ", 0));
             Member memberToAdd = SearchForMember.findMember((int) Console.readNumber("Enter Member ID: ", 0));
+            tournamentToUse.displayTournamentParticipants();
 
             // find member to add by ID
             if(memberToAdd != null && tournamentToUse != null){

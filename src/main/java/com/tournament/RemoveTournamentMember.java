@@ -17,12 +17,12 @@ public class RemoveTournamentMember {
 
             int tournamentId = (int) Console.readNumber("Enter Tournament ID: ", 0 );
             Tournament tournamentToUse = SearchForTournament.findTournament( tournamentId);
+            tournamentToUse.displayTournamentParticipants();
             int memberId = (int)Console.readNumber("Enter Member ID: ", 0);
             Member memberToDelete = SearchForMember.findMember(( memberId));
 
             // find member to remove by ID
             if (memberToDelete != null && tournamentToUse != null){
-                System.out.println("is the test getting here");
                 delete.removeMemberFromTournament(memberToDelete.getMemberID(), tournamentToUse.getTournamentID());
 
                 tournamentToUse.deleteMember(memberToDelete);

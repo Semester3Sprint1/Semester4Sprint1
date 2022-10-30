@@ -24,8 +24,8 @@ public class TournamentMenu {
             System.out.println("""
                     Please Choose an Option:
                         1. Create Tournament
-                        2. Register Member
-                        3. Remove Member
+                        2. Register Member For Tournament
+                        3. Remove Member From Tournament
                         4. Display Participating Member by Tournament
                         5. Enter Member Tournament Score
                         6. View All Tournaments

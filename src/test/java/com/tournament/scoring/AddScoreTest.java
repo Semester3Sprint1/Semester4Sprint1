@@ -31,5 +31,4 @@ public class AddScoreTest {
 
         AddScore.addScore(mockDBInsert, defaultTournament, defaultMember, Score.getScoreList(), 3);
     }
-
 }
